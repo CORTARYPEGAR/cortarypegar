@@ -1,0 +1,3591 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Cortar & Pegar | Papelería personalizada</title>
+<meta name="description" content="Papelería personalizada, agendas, cuadernos, regalos, productos sensoriales, impresiones 3D y soluciones para negocios de Cortar & Pegar.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#E0338A">
+<link rel="icon" type="image/png" href="imagenes/logo.png">
+<link rel="apple-touch-icon" href="imagenes/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cortar & Pegar | Papelería personalizada">
+<meta property="og:description" content="Papelería personalizada, agendas, cuadernos, regalos, productos sensoriales, impresiones 3D y soluciones para negocios de Cortar & Pegar.">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap"
+rel="stylesheet">
+
+<style>
+
+:root{
+  --bg:#FDE9F1;
+  --card:#FFF5F9;
+  --rosa:#F5A0C3;
+  --rosa-medio:#F48FB8;
+  --magenta:#E0338A;
+  --pastel:#F9B8D0;
+  --borde:#F6C3D8;
+  --celeste:#74C6F0;
+  --lila:#C6B2EE;
+  --texto:#25193A;
+  --texto2:#8C7A97;
+  --ph:#9C92A6;
+  --sombra:0 6px 16px rgba(224,51,138,.15);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Ubuntu',sans-serif;
+  color:var(--texto);
+  background:var(--bg);
+  padding:clamp(8px,3vw,32px);
+}
+
+body.menu-open,
+body.search-open,
+body.cart-open,
+body.quote-open{
+  overflow:hidden;
+}
+
+button{
+  font:inherit;
+  cursor:pointer;
+  border:0;
+  background:none;
+  color:inherit;
+}
+
+.app{
+  max-width:1000px;
+  margin:auto;
+  background:linear-gradient(#FFF7FA,var(--card));
+  border:2px solid #fff;
+  border-radius:34px;
+  box-shadow:
+    0 0 0 6px rgba(249,184,208,.25),
+    var(--sombra);
+  padding:clamp(14px,3vw,32px);
+  position:relative;
+  overflow:hidden;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.top{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:8px;
+}
+
+.top .r{
+  justify-self:end;
+  display:flex;
+  gap:clamp(8px,3vw,22px);
+}
+
+.ic{
+  width:34px;
+  height:34px;
+  color:var(--magenta);
+  position:relative;
+}
+
+.ic svg{
+  width:100%;
+  height:100%;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.badge{
+  position:absolute;
+  top:-4px;
+  right:-6px;
+  background:var(--rosa-medio);
+  color:#fff;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-size:11px;
+  font-weight:700;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:clamp(180px,35vw,360px);
+}
+
+.logo-img{
+  display:block;
+  width:100%;
+  max-height:140px;
+  object-fit:contain;
+}
+
+
+/* =========================
+   NAV
+========================= */
+
+nav{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding:16px 2px 8px;
+  scrollbar-width:none;
+}
+
+nav::-webkit-scrollbar{
+  display:none;
+}
+
+nav a{
+  flex:1 0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  padding:9px 16px;
+  border-radius:99px;
+  background:#fff;
+  border:1.5px solid var(--borde);
+  color:var(--magenta);
+  text-decoration:none;
+  font-weight:500;
+  box-shadow:0 3px 8px rgba(249,184,208,.35);
+  transition:.2s;
+}
+
+nav a:hover{
+  transform:translateY(-2px);
+  background:#FFF0F6;
+}
+
+nav a.on{
+  background:var(--rosa);
+  color:#fff;
+  border-color:var(--rosa);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  position:relative;
+  border-radius:28px;
+  overflow:hidden;
+  margin-top:10px;
+  background:linear-gradient(
+    100deg,
+    #FDE1EC,
+    #F9C6DB 70%,
+    #F6B5D0
+  );
+}
+
+.slides{
+  display:grid;
+}
+
+.slide{
+  grid-area:1/1;
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  align-items:center;
+  gap:10px;
+  padding:
+    clamp(16px,4vw,40px)
+    clamp(16px,4vw,40px)
+    40px;
+  opacity:0;
+  transition:opacity .6s;
+  pointer-events:none;
+}
+
+.slide.on{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.slide h2{
+  font-size:clamp(26px,7vw,60px);
+  line-height:1.05;
+  font-weight:600;
+  color:#F0509B;
+}
+
+.slide h2 b{
+  display:block;
+  color:#8FD0F2;
+}
+
+.slide p{
+  margin-top:12px;
+  color:var(--texto2);
+  font-size:clamp(13px,3.3vw,20px);
+}
+
+.hero-product{
+  width:min(100%,290px);
+  aspect-ratio:3/4;
+  justify-self:center;
+  border-radius:18px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:-6px 8px 18px rgba(200,90,140,.3);
+  transform:rotate(3deg);
+  position:relative;
+}
+
+.hero-product img{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.hero-emoji{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  width:100%;
+  height:100%;
+  display:grid;
+  place-items:center;
+  font-size:clamp(72px,10vw,118px);
+  background:linear-gradient(145deg,#FFF8FB,#FDE9F1);
+}
+
+.dots{
+  position:absolute;
+  bottom:12px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:10px;
+}
+
+.dots button{
+  width:13px;
+  height:13px;
+  border-radius:50%;
+  opacity:.55;
+}
+
+.dots button:nth-child(1){
+  background:var(--magenta);
+}
+
+.dots button:nth-child(2){
+  background:var(--celeste);
+}
+
+.dots button:nth-child(3){
+  background:var(--lila);
+}
+
+.dots button.on{
+  opacity:1;
+  transform:scale(1.3);
+}
+
+
+/* =========================
+   PRODUCTOS DESTACADOS
+========================= */
+
+.sec{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:24px 4px 12px;
+}
+
+.sec h2{
+  color:var(--magenta);
+  font-size:clamp(20px,5vw,32px);
+}
+
+.sec a{
+  color:var(--magenta);
+  text-decoration:none;
+  font-weight:500;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:clamp(10px,2vw,20px);
+}
+
+.card{
+  background:#fff;
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:var(--sombra);
+  padding-bottom:12px;
+  display:flex;
+  flex-direction:column;
+}
+
+.product-img-wrap{
+  position:relative;
+  aspect-ratio:1/1.05;
+  overflow:hidden;
+  background:#FCEAF2;
+}
+
+.product-img{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .3s ease;
+}
+
+.product-emoji-fallback{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  display:grid;
+  place-items:center;
+  font-size:clamp(58px,8vw,88px);
+  background:linear-gradient(145deg,#FFF8FB,#FDE9F1);
+}
+
+.card:hover .product-img{
+  transform:scale(1.03);
+}
+
+.heart{
+  position:absolute;
+  top:10px;
+  right:10px;
+  z-index:2;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#fff;
+  color:var(--rosa-medio);
+  display:grid;
+  place-items:center;
+  box-shadow:0 2px 7px rgba(0,0,0,.09);
+}
+
+.heart.on{
+  color:var(--magenta);
+}
+
+.card h3{
+  font-size:clamp(14px,3vw,19px);
+  padding:12px 12px 0;
+  line-height:1.25;
+}
+
+.pr{
+  padding:5px 12px 12px;
+  font-weight:700;
+}
+
+.btn{
+  background:var(--rosa);
+  color:#fff;
+  border-radius:99px;
+  padding:10px;
+  margin:auto 12px 0;
+  font-weight:500;
+}
+
+
+/* =========================
+   SERVICIOS ESPECIALES
+========================= */
+
+.special{
+  margin-top:clamp(34px,6vw,58px);
+  padding:clamp(18px,4vw,32px);
+  border-radius:30px;
+  background:linear-gradient(
+    145deg,
+    #FFF0F6,
+    #F8F2FF
+  );
+  border:1.5px solid rgba(246,195,216,.85);
+  position:relative;
+  overflow:hidden;
+}
+
+.special::before{
+  content:"♡";
+  position:absolute;
+  top:-25px;
+  right:24px;
+  font-size:110px;
+  color:rgba(245,160,195,.13);
+  transform:rotate(15deg);
+  pointer-events:none;
+}
+
+.special-head{
+  max-width:690px;
+  margin-bottom:24px;
+}
+
+.special-label{
+  display:inline-block;
+  margin-bottom:8px;
+  color:var(--magenta);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.special-head h2{
+  color:var(--magenta);
+  font-size:clamp(27px,5vw,42px);
+  line-height:1.05;
+}
+
+.special-head p{
+  margin-top:10px;
+  color:var(--texto2);
+  line-height:1.55;
+  font-size:clamp(14px,2.4vw,17px);
+}
+
+.special-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.special-card{
+  background:#fff;
+  border-radius:22px;
+  border:1px solid rgba(246,195,216,.85);
+  box-shadow:0 6px 18px rgba(224,51,138,.08);
+  min-height:190px;
+  padding:20px 22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:20px;
+  overflow:hidden;
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease;
+}
+
+.special-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 22px rgba(224,51,138,.13);
+}
+
+.special-img{
+  flex:0 0 125px;
+  width:125px;
+  height:125px;
+  min-height:0;
+  object-fit:cover;
+  border-radius:18px;
+  background:#FCEAF2;
+}
+
+.special-info{
+  flex:1;
+  min-width:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.special-icon{
+  display:grid;
+  place-items:center;
+  width:45px;
+  height:45px;
+  margin-bottom:8px;
+  border-radius:50%;
+  background:#FFF0F6;
+  font-size:22px;
+}
+
+.special-info h3{
+  max-width:280px;
+  font-size:clamp(17px,2.3vw,21px);
+  line-height:1.2;
+}
+
+.special-info p{
+  max-width:320px;
+  margin:8px auto 12px;
+  color:var(--texto2);
+  font-size:13px;
+  line-height:1.5;
+}
+
+.special-btn{
+  margin-top:auto;
+  align-self:center;
+  padding:8px 14px;
+  border-radius:99px;
+  color:var(--magenta);
+  background:#FFF0F6;
+  font-weight:600;
+  font-size:13px;
+  transition:.2s;
+}
+
+.special-btn:hover{
+  background:var(--rosa);
+  color:#fff;
+}
+
+.special-img[style*="display: none"] + .special-info{
+  width:100%;
+  flex:1 1 100%;
+}
+
+.special-cta{
+  margin-top:22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding:18px 20px;
+  background:#fff;
+  border-radius:20px;
+  border:1px solid var(--borde);
+}
+
+.special-cta-text strong{
+  display:block;
+  font-size:clamp(16px,2.5vw,20px);
+}
+
+.special-cta-text span{
+  display:block;
+  color:var(--texto2);
+  font-size:13px;
+  margin-top:4px;
+  line-height:1.4;
+}
+
+.quote-main-btn{
+  flex-shrink:0;
+  padding:13px 20px;
+  border-radius:99px;
+  background:var(--magenta);
+  color:#fff;
+  font-weight:600;
+}
+
+
+
+/* =========================
+   LÍNEA PARA NEGOCIOS
+========================= */
+.business-line{margin-top:30px;padding:24px;border-radius:26px;background:linear-gradient(135deg,#fff,#FFF0F6);border:1px solid var(--borde);display:flex;align-items:center;justify-content:space-between;gap:20px}
+.business-line h2{color:var(--magenta);font-size:clamp(22px,4vw,32px);margin-bottom:7px}
+.business-line p{color:var(--texto2);line-height:1.5;max-width:600px}
+.business-line a{flex-shrink:0;text-decoration:none;background:var(--magenta);color:#fff;padding:12px 18px;border-radius:99px;font-weight:600}
+@media(max-width:700px){.business-line{flex-direction:column;align-items:stretch}.business-line a{text-align:center}}
+
+/* =========================
+   PEDIDO
+========================= */
+
+.pedido{
+  margin-top:26px;
+  padding:clamp(16px,4vw,34px);
+  border:2px dashed var(--pastel);
+  border-radius:30px;
+  background:linear-gradient(#FFF0F6,#FFF8FB);
+}
+
+.pedido h2{
+  color:var(--magenta);
+  font-size:clamp(30px,8vw,54px);
+}
+
+.pedido>p{
+  color:var(--texto2);
+  font-size:clamp(14px,3.6vw,22px);
+  margin:6px 0 20px;
+}
+
+.row{
+  display:grid;
+  grid-template-columns:auto minmax(84px,150px) 1fr;
+  align-items:center;
+  gap:12px;
+  margin-bottom:14px;
+}
+
+.n{
+  display:grid;
+  place-items:center;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:var(--rosa-medio);
+  color:#fff;
+  font-size:20px;
+}
+
+select,
+input{
+  width:100%;
+  padding:13px 14px;
+  border:1.5px solid var(--borde);
+  border-radius:12px;
+  background:#fff;
+  font:400 16px Ubuntu;
+  color:var(--texto);
+  outline:none;
+}
+
+select:focus,
+input:focus{
+  border-color:var(--magenta);
+  box-shadow:0 0 0 3px rgba(224,51,138,.11);
+}
+
+.dos{
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:18px;
+}
+
+.mini{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.mini .h{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.qty{
+  display:grid;
+  grid-template-columns:1fr 1.2fr 1fr;
+  border:1.5px solid var(--borde);
+  border-radius:12px;
+  overflow:hidden;
+  background:#fff;
+}
+
+.qty button{
+  color:var(--magenta);
+  font-size:22px;
+}
+
+.qty input{
+  border:0;
+  text-align:center;
+}
+
+.order-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:25px;
+}
+
+.add-cart-main,
+.wa{
+  min-height:55px;
+  border-radius:99px;
+  font-weight:500;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+
+.add-cart-main{
+  background:var(--rosa);
+  color:#fff;
+}
+
+.wa{
+  background:var(--celeste);
+  color:#fff;
+}
+
+
+/* =========================
+   MENÚ
+========================= */
+
+.menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(37,25,58,.38);
+  opacity:0;
+  visibility:hidden;
+  z-index:9998;
+  transition:.25s;
+}
+
+.menu-overlay.on{
+  opacity:1;
+  visibility:visible;
+}
+
+.side-menu{
+  position:fixed;
+  inset:0 auto 0 0;
+  width:min(82vw,340px);
+  background:#FFF8FB;
+  z-index:9999;
+  transform:translateX(-110%);
+  transition:transform .3s;
+  display:flex;
+  flex-direction:column;
+  padding:22px 18px;
+}
+
+.side-menu.on{
+  transform:translateX(0);
+}
+
+.menu-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding-bottom:18px;
+  border-bottom:1px solid var(--borde);
+}
+
+.menu-logo{
+  width:170px;
+  max-height:65px;
+  object-fit:contain;
+  object-position:left center;
+}
+
+.menu-close{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#fff;
+  color:var(--magenta);
+  font-size:24px;
+}
+
+.menu-list{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  padding:16px 0;
+}
+
+.menu-link,
+.menu-parent{
+  display:flex;
+  width:100%;
+  gap:11px;
+  padding:12px;
+  border-radius:14px;
+  text-decoration:none;
+}
+
+.menu-link:hover,
+.menu-parent:hover{
+  background:#FDE9F1;
+}
+
+.menu-ico{
+  width:24px;
+}
+
+.chev{
+  margin-left:auto;
+}
+
+.submenu{
+  display:grid;
+  grid-template-rows:0fr;
+  transition:.25s;
+}
+
+.submenu.on{
+  grid-template-rows:1fr;
+}
+
+.submenu-inner{
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+
+.submenu a{
+  margin-left:35px;
+  padding:9px;
+  text-decoration:none;
+  color:var(--texto2);
+}
+
+.menu-foot{
+  margin-top:auto;
+  padding-top:18px;
+  border-top:1px solid var(--borde);
+  text-align:center;
+  color:var(--texto2);
+}
+
+
+/* =========================
+   BUSCADOR
+========================= */
+
+.search-overlay{
+  position:fixed;
+  inset:0;
+  z-index:10000;
+  background:rgba(37,25,58,.42);
+  opacity:0;
+  visibility:hidden;
+  padding:20px;
+  transition:.25s;
+}
+
+.search-overlay.on{
+  opacity:1;
+  visibility:visible;
+}
+
+.search-panel{
+  width:min(100%,650px);
+  max-height:85vh;
+  margin:30px auto;
+  background:#FFF8FB;
+  border-radius:26px;
+  padding:20px;
+  overflow:auto;
+}
+
+.search-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:15px;
+}
+
+.search-title{
+  color:var(--magenta);
+}
+
+.search-close{
+  width:38px;
+  height:38px;
+  background:#fff;
+  border-radius:50%;
+  color:var(--magenta);
+}
+
+.search-input{
+  margin-bottom:15px;
+}
+
+.search-result{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  padding:14px;
+  border-radius:14px;
+  background:#fff;
+  margin-bottom:7px;
+  text-align:left;
+}
+
+.search-result-name{
+  display:block;
+  font-weight:500;
+}
+
+.search-result-group{
+  display:block;
+  color:var(--texto2);
+  font-size:12px;
+}
+
+.search-result-price{
+  color:var(--magenta);
+  font-weight:700;
+}
+
+.search-empty{
+  text-align:center;
+  color:var(--texto2);
+  padding:25px;
+}
+
+
+/* =========================
+   CARRITO
+========================= */
+
+.cart-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(37,25,58,.42);
+  z-index:11000;
+  opacity:0;
+  visibility:hidden;
+  transition:.25s;
+}
+
+.cart-overlay.on{
+  opacity:1;
+  visibility:visible;
+}
+
+.cart-drawer{
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  width:min(92vw,440px);
+  background:#FFF8FB;
+  z-index:11001;
+  transform:translateX(105%);
+  transition:.3s;
+  display:flex;
+  flex-direction:column;
+}
+
+.cart-drawer.on{
+  transform:translateX(0);
+}
+
+.cart-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px;
+  border-bottom:1px solid var(--borde);
+}
+
+.cart-head h2{
+  color:var(--magenta);
+}
+
+.cart-close{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#fff;
+  color:var(--magenta);
+  font-size:24px;
+}
+
+.cart-items{
+  flex:1;
+  overflow:auto;
+  padding:14px;
+}
+
+.cart-empty{
+  text-align:center;
+  color:var(--texto2);
+  padding:55px 20px;
+}
+
+.cart-empty-icon{
+  display:block;
+  font-size:55px;
+  margin-bottom:12px;
+}
+
+.cart-item{
+  background:#fff;
+  border:1px solid var(--borde);
+  border-radius:18px;
+  padding:14px;
+  margin-bottom:10px;
+}
+
+.cart-item-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.cart-item-name{
+  font-weight:600;
+}
+
+.cart-remove{
+  color:var(--magenta);
+  font-size:20px;
+}
+
+.cart-details{
+  margin-top:8px;
+  color:var(--texto2);
+  font-size:12px;
+  line-height:1.55;
+}
+
+.cart-item-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:12px;
+}
+
+.cart-qty{
+  display:flex;
+  border:1px solid var(--borde);
+  border-radius:99px;
+  overflow:hidden;
+}
+
+.cart-qty button{
+  width:34px;
+  height:32px;
+  color:var(--magenta);
+}
+
+.cart-qty span{
+  min-width:32px;
+  display:grid;
+  place-items:center;
+}
+
+.cart-price{
+  color:var(--magenta);
+  font-weight:700;
+}
+
+.cart-footer{
+  padding:18px;
+  border-top:1px solid var(--borde);
+  background:#fff;
+}
+
+.cart-total-line{
+  display:flex;
+  justify-content:space-between;
+  font-size:18px;
+}
+
+.cart-total{
+  color:var(--magenta);
+  font-weight:700;
+}
+
+.cart-note{
+  color:var(--texto2);
+  font-size:11px;
+  margin:6px 0 14px;
+}
+
+.cart-checkout{
+  width:100%;
+  padding:14px;
+  border-radius:99px;
+  background:var(--celeste);
+  color:#fff;
+  font-weight:600;
+}
+
+.cart-checkout:disabled{
+  opacity:.45;
+}
+
+.cart-continue{
+  width:100%;
+  padding:10px;
+  margin-top:8px;
+  color:var(--magenta);
+}
+
+
+/* =========================
+   COTIZACIÓN
+========================= */
+
+.quote-overlay{
+  position:fixed;
+  inset:0;
+  z-index:13000;
+  background:rgba(37,25,58,.48);
+  backdrop-filter:blur(3px);
+  opacity:0;
+  visibility:hidden;
+  transition:.25s;
+  padding:20px;
+}
+
+.quote-overlay.on{
+  opacity:1;
+  visibility:visible;
+}
+
+.quote-modal{
+  width:min(100%,590px);
+  max-height:calc(100vh - 40px);
+  overflow-y:auto;
+  margin:25px auto;
+  background:#FFF8FB;
+  border:2px solid #fff;
+  border-radius:28px;
+  box-shadow:0 20px 55px rgba(37,25,58,.25);
+  padding:clamp(20px,4vw,30px);
+}
+
+.quote-modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:15px;
+  margin-bottom:20px;
+}
+
+.quote-modal-head h2{
+  color:var(--magenta);
+  font-size:clamp(25px,5vw,34px);
+}
+
+.quote-modal-head p{
+  color:var(--texto2);
+  font-size:13px;
+  margin-top:6px;
+  line-height:1.45;
+}
+
+.quote-close{
+  flex-shrink:0;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#fff;
+  border:1px solid var(--borde);
+  color:var(--magenta);
+  font-size:24px;
+}
+
+.quote-form{
+  display:grid;
+  gap:14px;
+}
+
+.quote-field{
+  display:grid;
+  gap:7px;
+}
+
+.quote-field label{
+  font-size:14px;
+  font-weight:600;
+}
+
+.quote-field small{
+  color:var(--texto2);
+  font-size:11px;
+}
+
+.quote-submit{
+  margin-top:6px;
+  padding:14px;
+  border-radius:99px;
+  background:var(--celeste);
+  color:#fff;
+  font-weight:600;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.badges{
+  display:flex;
+  justify-content:space-around;
+  gap:10px;
+  margin-top:24px;
+}
+
+footer{
+  text-align:center;
+  margin-top:16px;
+  color:var(--texto2);
+  font-size:13px;
+}
+
+footer a{
+  color:var(--magenta);
+  text-decoration:none;
+  font-weight:600;
+}
+footer a:hover{
+  text-decoration:underline;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:800px){
+
+  .special-card{
+    padding:18px;
+    gap:15px;
+  }
+
+  .special-img{
+    flex-basis:105px;
+    width:105px;
+    height:105px;
+  }
+
+}
+
+@media(max-width:700px){
+
+  .logo{
+    width:clamp(150px,45vw,230px);
+  }
+
+  .slide{
+    grid-template-columns:1fr;
+  }
+
+  .slide > div:first-child{
+    text-align:center;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .row{
+    grid-template-columns:auto 1fr;
+  }
+
+  .row select,
+  .row input{
+    grid-column:1/-1;
+  }
+
+  .dos,
+  .order-actions{
+    grid-template-columns:1fr;
+  }
+
+  .special-grid{
+    grid-template-columns:1fr;
+  }
+
+  .special-cta{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+}
+
+@media(max-width:430px){
+
+  .special-card{
+    flex-direction:column;
+    min-height:auto;
+    padding:22px 18px;
+  }
+
+  .special-img{
+    width:120px;
+    height:120px;
+    flex-basis:120px;
+  }
+
+  .special-info{
+    width:100%;
+  }
+
+}
+
+
+.cart-fixed{padding:7px 11px;border:1px solid var(--borde);border-radius:99px;color:var(--texto2);font-size:12px;background:#FFF8FB;}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- MENÚ -->
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<aside class="side-menu" id="sideMenu">
+
+<div class="menu-head">
+
+<img
+src="imagenes/logo.png"
+alt="Cortar & Pegar"
+class="menu-logo">
+
+<button class="menu-close" id="menuClose">
+×
+</button>
+
+</div>
+
+<div class="menu-list">
+
+<a class="menu-link" href="index.html">
+
+<span class="menu-ico">
+♡
+</span>
+
+Inicio
+
+</a>
+
+<button class="menu-parent" id="productosToggle">
+
+<span class="menu-ico">
+✿
+</span>
+
+Productos
+
+<span class="chev">
+⌄
+</span>
+
+</button>
+
+<div class="submenu" id="productosSubmenu">
+
+<div class="submenu-inner">
+
+<a href="catalogo.html?categoria=todos">
+🛍️ Todos los productos
+</a>
+
+<a href="catalogo.html?categoria=agendas">
+🌸 Agendas
+</a>
+
+<a href="catalogo.html?categoria=cuadernos">
+📓 Cuadernos
+</a>
+
+<a href="catalogo.html?categoria=stickers">
+⭐ Stickers
+</a>
+
+<a href="catalogo.html?categoria=regalos">
+🎁 Regalos
+</a>
+
+<a href="catalogo.html?categoria=sets">
+🎀 Sets
+</a>
+
+<a href="catalogo.html?categoria=negocios">
+💼 Negocios &amp; Packaging
+</a>
+
+<a href="catalogo.html?categoria=mas">
+✨ Más productos
+</a>
+
+</div>
+
+</div>
+
+<a class="menu-link" href="#servicios">
+
+<span class="menu-ico">
+💼
+</span>
+
+Servicios especiales
+
+</a>
+
+<a class="menu-link" href="#pedido">
+
+<span class="menu-ico">
+❔
+</span>
+
+Cómo comprar
+
+</a>
+
+<a class="menu-link" href="#contacto">
+
+<span class="menu-ico">
+💬
+</span>
+
+Contacto
+
+</a>
+
+</div>
+
+<div class="menu-foot">
+Hecho con amor ♡
+</div>
+
+</aside>
+
+
+<!-- BUSCADOR -->
+
+<div class="search-overlay" id="searchOverlay">
+
+<div class="search-panel">
+
+<div class="search-head">
+
+<h2 class="search-title">
+¿Qué buscas? ♡
+</h2>
+
+<button class="search-close" id="searchClose">
+×
+</button>
+
+</div>
+
+<input
+class="search-input"
+id="searchInput"
+type="search"
+placeholder="Busca agendas, stickers, cuadernos...">
+
+<div class="search-results" id="searchResults">
+
+<div class="search-empty">
+Escribe el nombre de un producto 🌸
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- CARRITO -->
+
+<div class="cart-overlay" id="cartOverlay"></div>
+
+<aside class="cart-drawer" id="cartDrawer">
+
+<div class="cart-head">
+
+<h2>
+🛍️ Tu carrito
+</h2>
+
+<button class="cart-close" id="cartClose">
+×
+</button>
+
+</div>
+
+<div class="cart-items" id="cartItems"></div>
+
+<div class="cart-footer">
+
+<div class="cart-total-line">
+
+<span>
+Subtotal
+</span>
+
+<span
+class="cart-total"
+id="cartSubtotal">
+
+$0
+
+</span>
+
+</div>
+
+<div class="cart-note" id="cartNote"></div>
+
+<button
+class="cart-checkout"
+id="cartCheckout">
+
+Finalizar carrito por WhatsApp
+
+</button>
+
+<button
+class="cart-continue"
+id="cartContinue">
+
+← Seguir comprando
+
+</button>
+
+</div>
+
+</aside>
+
+
+<!-- COTIZACIÓN -->
+
+<div class="quote-overlay" id="quoteOverlay">
+
+<div class="quote-modal">
+
+<div class="quote-modal-head">
+
+<div>
+
+<h2>
+Cotización especial ♡
+</h2>
+
+<p>
+Cuéntanos un poco sobre lo que necesitas y te responderemos con una cotización más precisa.
+</p>
+
+</div>
+
+<button class="quote-close" id="quoteClose">
+×
+</button>
+
+</div>
+
+<form class="quote-form" id="quoteForm">
+
+<div class="quote-field">
+
+<label for="quoteService">
+Tipo de servicio
+</label>
+
+<select id="quoteService" required>
+
+<option value="" disabled selected>
+Selecciona un servicio
+</option>
+
+<option value="Diseños corporativos para empresas o instituciones">
+Diseños corporativos para empresas o instituciones
+</option>
+
+<option value="Papelería y sensoriales para neurodivergentes">
+Papelería y sensoriales para neurodivergentes
+</option>
+
+<option value="Pedido para curso completo">
+Pedido para curso completo
+</option>
+
+<option value="Diseño personalizado según ocupación">
+Diseño personalizado según ocupación
+</option>
+
+</select>
+
+</div>
+
+<div class="quote-field">
+
+<label for="quoteBusiness">
+Rubro, empresa, institución o contexto
+</label>
+
+<input
+id="quoteBusiness"
+type="text"
+placeholder="Ej: Colegio, clínica, emprendimiento..."
+required>
+
+</div>
+
+<div class="quote-field">
+
+<label for="quoteQty">
+Cantidad aproximada
+</label>
+
+<input
+id="quoteQty"
+type="number"
+min="1"
+placeholder="Ej: 30"
+required>
+
+</div>
+
+<div class="quote-field">
+
+<label for="quoteDeadline">
+Plazo o fecha estimada
+</label>
+
+<input
+id="quoteDeadline"
+type="date"
+required>
+
+<small>Fecha mínima sugerida: 5 días hábiles desde hoy. La disponibilidad se confirma al cotizar.</small>
+
+</div>
+
+<div class="quote-field">
+
+<label for="quoteExtra">
+Cuéntanos un poco más
+</label>
+
+<input
+id="quoteExtra"
+type="text"
+placeholder="Colores, nombres, temática, edades...">
+
+</div>
+
+<button
+class="quote-submit"
+type="submit">
+
+Solicitar cotización por WhatsApp
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+
+<!-- PÁGINA -->
+
+<div class="app" id="inicio">
+
+
+<header class="top">
+
+<button class="ic" id="menuOpen">
+
+<svg viewBox="0 0 24 24">
+<path d="M3 6h18M3 12h18M3 18h18"/>
+</svg>
+
+</button>
+
+<div class="logo">
+
+<img
+src="imagenes/logo.png"
+alt="Cortar & Pegar"
+class="logo-img">
+
+</div>
+
+<div class="r">
+
+<button class="ic" id="searchOpen">
+
+<svg viewBox="0 0 24 24">
+
+<circle
+cx="11"
+cy="11"
+r="7"/>
+
+<path
+d="m20 20-4-4"/>
+
+</svg>
+
+</button>
+
+<button class="ic" id="favoritesOpen" aria-label="Favoritos">
+
+<svg viewBox="0 0 24 24">
+
+<path
+d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/>
+
+</svg>
+
+<span class="badge" id="favoriteBadge">
+0
+</span>
+
+</button>
+
+<button class="ic" id="cartOpen">
+
+<svg viewBox="0 0 24 24">
+
+<path
+d="M5 8h14l-1 12H6zM9 8V6a3 3 0 0 1 6 0v2"/>
+
+</svg>
+
+<span class="badge" id="cartBadge">
+0
+</span>
+
+</button>
+
+</div>
+
+</header>
+
+
+<nav>
+
+<a
+href="catalogo.html?categoria=agendas">
+🌸 Agendas
+</a>
+
+<a href="catalogo.html?categoria=cuadernos">
+📓 Cuadernos
+</a>
+
+<a href="catalogo.html?categoria=stickers">
+⭐ Stickers
+</a>
+
+<a href="catalogo.html?categoria=regalos">
+🎁 Regalos
+</a>
+
+<a href="catalogo.html?categoria=sets">
+🎀 Sets
+</a>
+
+<a href="catalogo.html?categoria=mas">
+⋯ Más
+</a>
+
+</nav>
+
+
+<section class="hero">
+
+<div class="slides">
+
+<article class="slide on">
+
+<div>
+
+<h2>
+Agendas
+<b>personalizadas</b>
+</h2>
+
+<p>
+Organiza tus días con diseños hechos a tu estilo ♡
+</p>
+
+</div>
+
+<div class="hero-product">
+
+<div class="hero-emoji" aria-label="Agenda B5 con separadores">📔</div>
+
+<img
+src="imagenes/productos/agenda-b5-separadores.jpg"
+alt="Agenda B5 con separadores"
+onerror="this.style.display='none'">
+
+</div>
+
+</article>
+
+<article class="slide">
+
+<div>
+
+<h2>
+Cuadernos
+<b>para tus ideas</b>
+</h2>
+
+<p>
+Formatos personalizados para estudio, trabajo o uso diario ♡
+</p>
+
+</div>
+
+<div class="hero-product">
+
+<div class="hero-emoji" aria-label="Cuaderno B5">📘</div>
+
+<img
+src="imagenes/productos/cuaderno-b5.jpg"
+alt="Cuaderno B5 personalizado"
+onerror="this.style.display='none'">
+
+</div>
+
+</article>
+
+<article class="slide">
+
+<div>
+
+<h2>
+Sets
+<b>personalizados</b>
+</h2>
+
+<p>
+Combina agenda, calendario y lápiz en un mismo diseño ✨
+</p>
+
+</div>
+
+<div class="hero-product">
+
+<div class="hero-emoji" aria-label="Set agenda calendario y lápiz">🎁</div>
+
+<img
+src="imagenes/productos/set-agenda-15x21-calendario-escritorio -lapiz.jpg"
+alt="Set agenda 15x21, calendario de escritorio y lápiz"
+onerror="this.style.display='none'">
+
+</div>
+
+</article>
+
+</div>
+
+<div class="dots">
+
+<button class="on"></button>
+<button></button>
+<button></button>
+
+</div>
+
+</section>
+
+
+<div class="sec" id="productos">
+
+<h2>
+☆ Productos destacados
+</h2>
+
+<a href="catalogo.html?categoria=todos">
+Ver todos →
+</a>
+
+</div>
+
+
+<div class="grid">
+
+<article class="card">
+
+<div class="product-img-wrap">
+
+<div class="product-emoji-fallback" aria-label="Set con impresión 3D">✨</div>
+
+<img
+src="imagenes/productos/tamaño-carta-anillado-semiescondido-pedido-3d.jpg"
+alt="Set anillado carta semiescondido con impresión 3D"
+class="product-img"
+onerror="this.style.display='none'">
+
+<button
+class="heart"
+type="button"
+data-favorite-id="set-carta-3d"
+aria-label="Agregar a favoritos"
+aria-pressed="false">
+♡
+</button>
+
+</div>
+
+<h3>
+Set anillado carta + impresión 3D
+</h3>
+
+<div class="pr">
+Consultar
+</div>
+
+<button
+class="btn"
+data-page="set-carta-3d.html">
+Ver producto
+</button>
+
+</article>
+
+
+<article class="card">
+
+<div class="product-img-wrap">
+
+<div class="product-emoji-fallback" aria-label="Recetario 15x21 o A5">🍓</div>
+
+<img
+src="imagenes/productos/recetario.jpg"
+alt="Recetario 15x21 o A5"
+class="product-img"
+onerror="this.style.display='none'">
+
+<button
+class="heart"
+type="button"
+data-favorite-id="recetario-normal"
+aria-label="Agregar a favoritos"
+aria-pressed="false">
+♡
+</button>
+
+</div>
+
+<h3>
+Recetario 15x21 o A5
+</h3>
+
+<div class="pr">
+$17.000 CLP
+</div>
+
+<button
+class="btn"
+data-page="recetario-normal.html">
+Ver producto
+</button>
+
+</article>
+
+
+<article class="card">
+
+<div class="product-img-wrap">
+
+<div class="product-emoji-fallback" aria-label="Miniplanner con lápiz">📝</div>
+
+<img
+src="imagenes/productos/mini-planner-lapiz.jpg"
+alt="Miniplanner con lápiz y post it"
+class="product-img"
+onerror="this.style.display='none'">
+
+<button
+class="heart"
+type="button"
+data-favorite-id="miniplanner-lapiz"
+aria-label="Agregar a favoritos"
+aria-pressed="false">
+♡
+</button>
+
+</div>
+
+<h3>
+Miniplanner con lápiz y post it
+</h3>
+
+<div class="pr">
+$13.000 CLP
+</div>
+
+<button
+class="btn"
+data-page="miniplanner-lapiz.html">
+Ver producto
+</button>
+
+</article>
+
+</div>
+
+<section class="special" id="servicios">
+
+<div class="special-head">
+
+<span class="special-label">
+Para grupos, empresas e instituciones
+</span>
+
+<h2>
+Servicios especiales ♡
+</h2>
+
+<p>
+También creamos propuestas personalizadas para empresas, instituciones, cursos y profesionales.
+</p>
+
+</div>
+
+
+<div class="special-grid">
+
+
+<article class="special-card">
+
+<img
+src="imagenes/servicios/corporativo.jpg"
+alt="Diseños corporativos"
+class="special-img" onerror="this.style.display='none'">
+
+<div class="special-info">
+
+<span class="special-icon">
+🏢
+</span>
+
+<h3>
+Diseños corporativos
+</h3>
+
+<p>
+Papelería y productos personalizados para empresas, instituciones, equipos y eventos.
+</p>
+
+<button
+class="special-btn"
+data-quote-service="Diseños corporativos para empresas o instituciones">
+
+Cotizar este servicio →
+
+</button>
+
+</div>
+
+</article>
+
+
+<article class="special-card">
+
+<img
+src="imagenes/servicios/neurodivergente.jpg"
+alt="Especial neurodivergentes"
+class="special-img" onerror="this.style.display='none'">
+
+<div class="special-info">
+
+<span class="special-icon">
+🧠
+</span>
+
+<h3>
+Especial neurodivergentes
+</h3>
+
+<p>
+Papelería y productos sensoriales adaptados según necesidades y preferencias.
+</p>
+
+<button
+class="special-btn"
+data-quote-service="Papelería y sensoriales para neurodivergentes">
+
+Cotizar este servicio →
+
+</button>
+
+</div>
+
+</article>
+
+
+<article class="special-card">
+
+<img
+src="imagenes/servicios/curso-completo.jpg"
+alt="Cursos completos"
+class="special-img" onerror="this.style.display='none'">
+
+<div class="special-info">
+
+<span class="special-icon">
+🎓
+</span>
+
+<h3>
+Pedidos para cursos completos
+</h3>
+
+<p>
+Precios especiales para pedidos grupales, cursos y actividades escolares.
+</p>
+
+<button
+class="special-btn"
+data-quote-service="Pedido para curso completo">
+
+Cotizar este servicio →
+
+</button>
+
+</div>
+
+</article>
+
+
+<article class="special-card">
+
+<img
+src="imagenes/servicios/ocupacion.jpg"
+alt="Diseños según ocupación"
+class="special-img" onerror="this.style.display='none'">
+
+<div class="special-info">
+
+<span class="special-icon">
+💼
+</span>
+
+<h3>
+Según tu ocupación
+</h3>
+
+<p>
+Diseños para docentes, profesionales de la salud, terapeutas, emprendedores y más.
+</p>
+
+<button
+class="special-btn"
+data-quote-service="Diseño personalizado según ocupación">
+
+Cotizar este servicio →
+
+</button>
+
+</div>
+
+</article>
+
+</div>
+
+
+<div class="special-cta">
+
+<div class="special-cta-text">
+
+<strong>
+¿Necesitas algo más específico?
+</strong>
+
+<span>
+Cuéntanos tu idea, cantidad y plazo.
+</span>
+
+</div>
+
+<button
+class="quote-main-btn"
+id="quoteMainBtn">
+
+Pide tu cotización formal aquí →
+
+</button>
+
+</div>
+
+</section>
+
+
+
+<section class="business-line">
+<div>
+<h2>💼 Negocios & Packaging</h2>
+<p>Stickers, tarjetas de presentación, cierres para bolsas y cajas, gift cards, fidelidad y magnéticos personalizados para tu marca.</p>
+</div>
+<a href="catalogo.html?categoria=negocios">Ver Negocios &amp; Packaging →</a>
+</section>
+
+<section class="pedido" id="pedido">
+
+<h2>
+Arma tu pedido ♥
+</h2>
+
+<p>
+Cuéntanos cómo lo quieres y te lo preparamos ♡
+</p>
+
+<form id="f">
+
+<label class="row">
+
+<b class="n">
+1
+</b>
+
+<span>
+Producto
+</span>
+
+<select id="prod" required></select>
+
+</label>
+
+
+<label class="row">
+
+<b class="n">
+2
+</b>
+
+<span>
+Diseño / temática
+</span>
+
+<select id="dis" required></select>
+
+</label>
+
+
+<label class="row">
+
+<b class="n">
+3
+</b>
+
+<span>
+Nombre o texto
+</span>
+
+<input
+id="txt"
+placeholder="Ej: Sofía, Cumple 10, Frase, etc.">
+
+</label>
+
+
+<div class="dos">
+
+<div class="mini">
+
+<div class="h">
+
+<b class="n">
+4
+</b>
+
+<h4>
+Cantidad
+</h4>
+
+</div>
+
+<div class="qty">
+
+<button type="button" id="menos">
+−
+</button>
+
+<input
+id="qty"
+type="number"
+value="1"
+min="1"
+max="99">
+
+<button type="button" id="mas">
++
+</button>
+
+</div>
+
+</div>
+
+
+<div class="mini">
+
+<div class="h">
+
+<b class="n">
+5
+</b>
+
+<h4>
+Fecha que lo necesitas
+</h4>
+
+</div>
+
+<input
+id="fecha"
+type="date"
+required>
+
+<small style="color:var(--texto2);line-height:1.4;">
+Fecha mínima: 5 días hábiles desde hoy. La disponibilidad final se confirma por WhatsApp.
+</small>
+
+</div>
+
+</div>
+
+
+<div class="order-actions">
+
+<button
+class="add-cart-main"
+id="addToCart"
+type="button">
+
+🛍️ Agregar al carrito
+
+</button>
+
+<button
+class="wa"
+type="submit">
+
+💬 Comprar ahora
+
+</button>
+
+</div>
+
+</form>
+
+</section>
+
+
+<div class="badges">
+
+<div>
+🚚 Envíos a todo Chile
+</div>
+
+<div>
+🎁 Packaging especial
+</div>
+
+<div>
+💬 Atención personalizada
+</div>
+
+</div>
+
+<footer id="contacto">
+  <span>Hecho con amor · </span>
+  <a href="https://www.instagram.com/cortar_y.pegar/" target="_blank" rel="noopener noreferrer">@cortar_y.pegar</a>
+  <span> · </span>
+  <a href="https://wa.me/56950375836" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+</footer>
+
+</div>
+
+
+<script src="js/productos.js"></script>
+
+<script>
+
+
+const $ =
+id => document.getElementById(id);
+
+const WA =
+'56950375836';
+
+const CART_KEY =
+'cortarPegarCartV1';
+
+const FAVORITES_KEY =
+'cortarPegarFavoritesV1';
+
+const PRODUCTOS = window.CP_PRODUCTOS_LISTA || [];
+
+
+/* PRODUCTOS */
+
+const P = {};
+
+PRODUCTOS
+.filter(producto => producto.tipo !== "negocio")
+.forEach(producto => {
+  const grupo = producto.categoriaNombre || "Otros";
+  if(!P[grupo]) P[grupo] = [];
+  P[grupo].push([producto.nombre, producto.precio || 0, producto.id]);
+});
+
+
+const T = [
+
+"Kawaii",
+
+"Cerezas",
+
+"Cuadros (gingham)",
+
+"Ositos",
+
+"Conejitos",
+
+"Arcoíris",
+
+"Flores",
+
+"Otro (te lo cuento por WhatsApp)"
+
+];
+
+
+/* SELECT PRODUCTOS */
+
+$('prod').innerHTML =
+
+'<option value="" disabled selected>Selecciona un producto</option>'
+
++
+
+Object
+.entries(P)
+.map(([grupo,productos]) =>
+
+`<optgroup label="${grupo}">
+
+${productos.map(([nombre,precio,id]) =>
+
+`<option
+value="${nombre}"
+data-p="${precio}"
+data-id="${id}">
+
+${nombre}
+
+${precio
+?
+' · $' +
+precio.toLocaleString('es-CL')
+:
+' · consultar'
+}
+
+</option>`
+
+).join('')}
+
+</optgroup>`
+
+)
+.join('');
+
+
+/* DISEÑOS */
+
+$('dis').innerHTML =
+
+'<option value="" disabled selected>Selecciona un diseño</option>'
+
++
+
+T.map(t =>
+
+`<option value="${t}">
+${t}
+</option>`
+
+).join('');
+
+
+/* FECHAS */
+
+const MIN_DIAS_HABILES = 5;
+
+function sumarDiasHabiles(fecha,dias){
+  const resultado = new Date(fecha);
+  let agregados = 0;
+  while(agregados < dias){
+    resultado.setDate(resultado.getDate()+1);
+    const dia = resultado.getDay();
+    if(dia !== 0 && dia !== 6) agregados++;
+  }
+  return resultado;
+}
+
+function fechaISO(fecha){
+  return `${fecha.getFullYear()}-${String(fecha.getMonth()+1).padStart(2,'0')}-${String(fecha.getDate()).padStart(2,'0')}`;
+}
+
+const fechaMinimaPedido =
+sumarDiasHabiles(new Date(),MIN_DIAS_HABILES);
+
+const fechaMinimaISO =
+fechaISO(fechaMinimaPedido);
+
+$('fecha').min =
+fechaMinimaISO;
+
+$('quoteDeadline').min =
+fechaMinimaISO;
+
+
+/* UTILIDADES */
+
+function moneda(valor){
+
+return '$' +
+valor.toLocaleString('es-CL') +
+' CLP';
+
+}
+
+
+function monedaCorta(valor){
+
+return '$' +
+valor.toLocaleString('es-CL');
+
+}
+
+
+function fechaBonita(fecha){
+
+if(!fecha){
+return '-';
+}
+
+return fecha
+.split('-')
+.reverse()
+.join('/');
+
+}
+
+
+function escapar(texto){
+
+return String(texto)
+
+.replaceAll('&','&amp;')
+
+.replaceAll('<','&lt;')
+
+.replaceAll('>','&gt;')
+
+.replaceAll('"','&quot;')
+
+.replaceAll("'","&#039;");
+
+}
+
+
+
+function actualizarDestacadosDesdeCatalogo(){
+  document.querySelectorAll('.card [data-favorite-id]').forEach(heart => {
+    const producto = window.CP_PRODUCTOS?.[heart.dataset.favoriteId];
+    const card = heart.closest('.card');
+    const price = card?.querySelector('.pr');
+    if(!producto || !price) return;
+    if(producto.tipo === 'negocio' && producto.precioDesde){
+      price.textContent = 'Desde ' + moneda(producto.precioDesde);
+    }else{
+      price.textContent = producto.precio ? moneda(producto.precio) : 'Consultar';
+    }
+  });
+}
+
+/* MENÚ */
+
+const sideMenu =
+$('sideMenu');
+
+const menuOverlay =
+$('menuOverlay');
+
+
+$('menuOpen').onclick = () => {
+
+sideMenu.classList.add('on');
+
+menuOverlay.classList.add('on');
+
+document.body.classList.add('menu-open');
+
+};
+
+
+function cerrarMenu(){
+
+sideMenu.classList.remove('on');
+
+menuOverlay.classList.remove('on');
+
+document.body.classList.remove('menu-open');
+
+}
+
+
+$('menuClose').onclick =
+cerrarMenu;
+
+menuOverlay.onclick =
+cerrarMenu;
+
+
+$('productosToggle').onclick = () => {
+
+$('productosSubmenu')
+.classList
+.toggle('on');
+
+};
+
+
+/* BUSCADOR */
+
+const searchOverlay =
+$('searchOverlay');
+
+const searchInput =
+$('searchInput');
+
+const searchResults =
+$('searchResults');
+
+const catalogo = PRODUCTOS.map(producto => ({
+  grupo: producto.tipo === "negocio" ? "Negocios & Packaging" : (producto.categoriaNombre || "Producto"),
+  nombre: producto.nombre,
+  precio: producto.precio || 0,
+  precioDesde: producto.precioDesde || 0,
+  pagina: producto.pagina
+}));
+
+
+function normalizar(texto){
+
+return texto
+.toLowerCase()
+.normalize('NFD')
+.replace(
+/[\u0300-\u036f]/g,
+''
+);
+
+}
+
+
+$('searchOpen').onclick = () => {
+
+searchOverlay.classList.add('on');
+
+document.body.classList.add('search-open');
+
+searchInput.value = '';
+
+searchResults.innerHTML =
+
+'<div class="search-empty">Escribe el nombre de un producto 🌸</div>';
+
+setTimeout(
+() => searchInput.focus(),
+100
+);
+
+};
+
+
+function cerrarBusqueda(){
+
+searchOverlay.classList.remove('on');
+
+document.body.classList.remove('search-open');
+
+}
+
+
+$('searchClose').onclick =
+cerrarBusqueda;
+
+
+searchOverlay.onclick = e => {
+
+if(
+e.target === searchOverlay
+){
+
+cerrarBusqueda();
+
+}
+
+};
+
+
+searchInput.oninput = function(){
+
+const q =
+normalizar(
+this.value.trim()
+);
+
+if(!q){
+
+searchResults.innerHTML =
+
+'<div class="search-empty">Escribe el nombre de un producto 🌸</div>';
+
+return;
+
+}
+
+const resultados =
+
+catalogo.filter(p =>
+
+normalizar(
+p.nombre +
+' ' +
+p.grupo
+)
+.includes(q)
+
+);
+
+
+if(!resultados.length){
+
+searchResults.innerHTML =
+
+'<div class="search-empty">No encontramos productos 🥺</div>';
+
+return;
+
+}
+
+
+searchResults.innerHTML =
+
+resultados.map(p => `
+
+<button
+class="search-result"
+data-search-product="${escapar(p.nombre)}"
+${p.pagina ? `data-search-page="${p.pagina}"` : ""}>
+
+<span>
+
+<span class="search-result-name">
+
+${escapar(p.nombre)}
+
+</span>
+
+<span class="search-result-group">
+
+${escapar(p.grupo)}
+
+</span>
+
+</span>
+
+<span class="search-result-price">
+
+${p.precio ? moneda(p.precio) : (p.precioDesde ? 'Desde ' + moneda(p.precioDesde) : 'Consultar')}
+
+</span>
+
+</button>
+
+`).join('');
+
+};
+
+
+searchResults.onclick = e => {
+
+const result =
+e.target.closest(
+'[data-search-product]'
+);
+
+if(!result){
+return;
+}
+
+if(result.dataset.searchPage){
+window.location.href = result.dataset.searchPage;
+return;
+}
+
+$('prod').value = result.dataset.searchProduct;
+
+cerrarBusqueda();
+
+$('pedido').scrollIntoView({
+behavior:'smooth'
+});
+
+};
+
+
+/* CANTIDAD */
+
+$('mas').onclick = () => {
+
+$('qty').value =
+
+Math.min(
+99,
+(Number($('qty').value)||1)+1
+);
+
+};
+
+
+$('menos').onclick = () => {
+
+$('qty').value =
+
+Math.max(
+1,
+(Number($('qty').value)||1)-1
+);
+
+};
+
+
+/* DESTACADOS */
+
+document
+.querySelectorAll('.btn')
+.forEach(boton => {
+
+boton.onclick = () => {
+
+if(boton.dataset.page){
+window.location.href = boton.dataset.page;
+return;
+}
+
+$('prod').value =
+boton.dataset.p;
+
+$('pedido')
+.scrollIntoView({
+behavior:'smooth'
+});
+
+};
+
+});
+
+
+/* FAVORITOS */
+
+function obtenerFavoritos(){
+
+try{
+
+const datos =
+
+JSON.parse(
+localStorage.getItem(FAVORITES_KEY)
+);
+
+return Array.isArray(datos)
+?
+datos.filter(id => typeof id === 'string')
+:
+[];
+
+}
+catch{
+
+return [];
+
+}
+
+}
+
+
+function guardarFavoritos(favoritos){
+
+const unicos =
+[...new Set(favoritos)];
+
+localStorage.setItem(
+FAVORITES_KEY,
+JSON.stringify(unicos)
+);
+
+actualizarFavoritosVisuales();
+
+}
+
+
+function alternarFavorito(id){
+
+let favoritos =
+obtenerFavoritos();
+
+if(
+favoritos.includes(id)
+){
+
+favoritos =
+favoritos.filter(
+favorito => favorito !== id
+);
+
+}
+else{
+
+favoritos.push(id);
+
+}
+
+guardarFavoritos(favoritos);
+
+}
+
+
+function actualizarFavoritosVisuales(){
+
+const favoritos =
+obtenerFavoritos();
+
+$('favoriteBadge').textContent =
+
+favoritos.length > 99
+?
+'99+'
+:
+favoritos.length;
+
+document
+.querySelectorAll('[data-favorite-id]')
+.forEach(heart => {
+
+const guardado =
+favoritos.includes(
+heart.dataset.favoriteId
+);
+
+heart
+.classList
+.toggle(
+'on',
+guardado
+);
+
+heart.textContent =
+guardado
+?
+'♥'
+:
+'♡';
+
+heart.setAttribute(
+'aria-label',
+guardado
+?
+'Quitar de favoritos'
+:
+'Agregar a favoritos'
+);
+
+heart.setAttribute(
+'aria-pressed',
+guardado
+?
+'true'
+:
+'false'
+);
+
+});
+
+}
+
+
+$('favoritesOpen').onclick = () => {
+
+window.location.href =
+'favoritos.html';
+
+};
+
+
+document
+.querySelectorAll('[data-favorite-id]')
+.forEach(heart => {
+
+heart.onclick = e => {
+
+e.stopPropagation();
+
+alternarFavorito(
+heart.dataset.favoriteId
+);
+
+};
+
+});
+
+
+window.addEventListener(
+'storage',
+e => {
+
+if(
+e.key === FAVORITES_KEY
+){
+
+actualizarFavoritosVisuales();
+
+}
+
+}
+);
+
+
+/* CARRUSEL */
+
+const slides =
+[
+...document.querySelectorAll('.slide')
+];
+
+const dots =
+[
+...document.querySelectorAll('.dots button')
+];
+
+let slideActual = 0;
+
+let timer;
+
+
+function mostrarSlide(indice){
+
+slideActual =
+(
+indice +
+slides.length
+)
+%
+slides.length;
+
+
+slides.forEach(
+(slide,i) =>
+
+slide.classList.toggle(
+'on',
+i === slideActual
+)
+
+);
+
+
+dots.forEach(
+(dot,i) =>
+
+dot.classList.toggle(
+'on',
+i === slideActual
+)
+
+);
+
+}
+
+
+function autoplay(){
+
+clearInterval(timer);
+
+timer =
+
+setInterval(
+() => mostrarSlide(slideActual+1),
+4500
+);
+
+}
+
+
+dots.forEach((dot,i) => {
+
+dot.onclick = () => {
+
+mostrarSlide(i);
+
+autoplay();
+
+};
+
+});
+
+
+autoplay();
+
+
+/* =========================
+   COTIZACIONES
+========================= */
+
+const quoteOverlay =
+$('quoteOverlay');
+
+
+function abrirCotizacion(servicio = ''){
+
+quoteOverlay
+.classList
+.add('on');
+
+document.body
+.classList
+.add('quote-open');
+
+if(servicio){
+
+$('quoteService').value =
+servicio;
+
+}
+
+}
+
+
+function cerrarCotizacion(){
+
+quoteOverlay
+.classList
+.remove('on');
+
+document.body
+.classList
+.remove('quote-open');
+
+}
+
+
+$('quoteMainBtn').onclick = () => {
+
+abrirCotizacion();
+
+};
+
+
+$('quoteClose').onclick =
+cerrarCotizacion;
+
+
+quoteOverlay.onclick = e => {
+
+if(
+e.target === quoteOverlay
+){
+
+cerrarCotizacion();
+
+}
+
+};
+
+
+document
+.querySelectorAll(
+'[data-quote-service]'
+)
+.forEach(boton => {
+
+boton.onclick = () => {
+
+abrirCotizacion(
+boton.dataset.quoteService
+);
+
+};
+
+});
+
+
+/* MENSAJE DE COTIZACIÓN COMPACTO */
+
+$('quoteForm').onsubmit = e => {
+
+e.preventDefault();
+
+
+const servicio =
+$('quoteService').value;
+
+const rubro =
+$('quoteBusiness').value.trim();
+
+const cantidad =
+$('quoteQty').value;
+
+const plazo =
+fechaBonita(
+$('quoteDeadline').value
+);
+
+const extra =
+$('quoteExtra').value.trim();
+
+
+const mensaje =
+
+`Hola Cortar y Pegar! Quisiera solicitar una cotización formal:
+
+• Servicio: ${servicio}
+• Rubro / institución: ${rubro}
+• Cantidad aprox.: ${cantidad}
+• Plazo: ${plazo}
+• Detalles: ${extra || '-'}
+
+¿Me podrían indicar valores y tiempo estimado de entrega?`;
+
+
+window.open(
+
+`https://wa.me/${WA}?text=${encodeURIComponent(mensaje)}`,
+
+'_blank'
+
+);
+
+};
+
+
+/* =========================
+   CARRITO
+========================= */
+function obtenerCarrito(){
+  try{
+    const datos=JSON.parse(localStorage.getItem(CART_KEY));
+    return Array.isArray(datos)?datos:[];
+  }catch{return [];}
+}
+
+function guardarCarrito(carrito){
+  localStorage.setItem(CART_KEY,JSON.stringify(carrito));
+  renderCarrito();
+}
+
+function crearId(){
+  return Date.now().toString(36)+Math.random().toString(36).slice(2,8);
+}
+
+function etiquetaDetalle(k){
+  const mapa={"diseño":"Diseño","texto":"Texto","tematica":"Temática","preferencia":"Preferencia","figura":"Figura","tamano":"Tamaño","acabado":"Acabado","medida":"Medida","caras":"Caras","material":"Material","marca":"Marca","detalles":"Detalles","unidades":"Cantidad"};
+  return mapa[k]||k.charAt(0).toUpperCase()+k.slice(1);
+}
+
+function textoDetallesItem(item){
+  const d=item.details||{};
+  const partes=Object.entries(d).filter(([,v])=>v!==""&&v!=="-"&&v!=null).map(([k,v])=>`${etiquetaDetalle(k)}: ${v}`);
+  if(!partes.length&&item.design)partes.push(`Diseño: ${item.design}`);
+  if(item.text&&item.text!=="-"&&!partes.some(x=>x.startsWith("Texto:")))partes.push(`Texto: ${item.text}`);
+  return partes.length?partes.join(" · "):"Sin detalles adicionales";
+}
+
+function cartCount(carrito){
+  return carrito.reduce((total,item)=>total+(item.cartMode==="fixed-price"?1:(Number(item.qty)||1)),0);
+}
+
+function abrirCarrito(){
+  $('cartDrawer').classList.add('on');
+  $('cartOverlay').classList.add('on');
+  document.body.classList.add('cart-open');
+  renderCarrito();
+}
+
+function cerrarCarrito(){
+  $('cartDrawer').classList.remove('on');
+  $('cartOverlay').classList.remove('on');
+  document.body.classList.remove('cart-open');
+}
+
+$('cartOpen').onclick=abrirCarrito;
+$('cartClose').onclick=cerrarCarrito;
+$('cartOverlay').onclick=cerrarCarrito;
+$('cartContinue').onclick=cerrarCarrito;
+
+function productoFormulario(){
+  if(!$('f').reportValidity())return null;
+  const opcion=$('prod').selectedOptions[0];
+  const diseño=$('dis').value;
+  const texto=$('txt').value.trim();
+  return {
+    id:crearId(),
+    productId:opcion.dataset.id||null,
+    product:$('prod').value,
+    price:Number(opcion.dataset.p)||0,
+    design:diseño,
+    text:texto,
+    details:{diseño, texto:texto||"-"},
+    date:$('fecha').value,
+    qty:Math.max(1,Math.min(99,Number($('qty').value)||1))
+  };
+}
+
+$('addToCart').onclick=()=>{
+  const nuevo=productoFormulario();
+  if(!nuevo)return;
+  const carrito=obtenerCarrito();
+  const igual=carrito.find(item=>item.cartMode!=="fixed-price"&&item.product===nuevo.product&&item.design===nuevo.design&&item.text===nuevo.text&&item.date===nuevo.date);
+  if(igual)igual.qty=Math.min(99,(Number(igual.qty)||1)+nuevo.qty);else carrito.push(nuevo);
+  guardarCarrito(carrito);
+  abrirCarrito();
+};
+
+function renderCarrito(){
+  const carrito=obtenerCarrito();
+  const cantidadTotal=cartCount(carrito);
+  $('cartBadge').textContent=cantidadTotal>99?'99+':cantidadTotal;
+  if(!carrito.length){
+    $('cartItems').innerHTML='<div class="cart-empty"><span class="cart-empty-icon">🛍️</span>Tu carrito está vacío ♡</div>';
+    $('cartSubtotal').textContent='$0';
+    $('cartNote').textContent='';
+    $('cartCheckout').disabled=true;
+    return;
+  }
+  $('cartCheckout').disabled=false;
+  let subtotal=0,cotizar=false;
+  $('cartItems').innerHTML=carrito.map(item=>{
+    const qty=Number(item.qty)||1,precio=Number(item.price)||0,total=item.cartMode==="fixed-price"?precio:precio*qty;
+    if(precio)subtotal+=total;else cotizar=true;
+    const controles=item.cartMode==="fixed-price"
+      ? `<div class="cart-fixed">${escapar(item.fixedUnits?item.fixedUnits+' unidades':'Precio cerrado')}</div>`
+      : `<div class="cart-qty"><button data-action="minus">−</button><span>${qty}</span><button data-action="plus">+</button></div>`;
+    const fecha=item.date?`<br>Fecha: ${escapar(fechaBonita(item.date))}`:'';
+    return `<article class="cart-item" data-cart-id="${escapar(item.id)}"><div class="cart-item-top"><div class="cart-item-name">${escapar(item.product)}</div><button class="cart-remove" data-action="remove">×</button></div><div class="cart-details">${escapar(textoDetallesItem(item))}${fecha}</div><div class="cart-item-bottom">${controles}<div class="cart-price">${precio?moneda(total):'Por cotizar'}</div></div></article>`;
+  }).join('');
+  $('cartSubtotal').textContent=moneda(subtotal);
+  $('cartNote').textContent=cotizar?'El subtotal no incluye productos por cotizar.':'';
+}
+
+$('cartItems').onclick=e=>{
+  const boton=e.target.closest('[data-action]');if(!boton)return;
+  const card=boton.closest('[data-cart-id]');if(!card)return;
+  const carrito=obtenerCarrito();const index=carrito.findIndex(item=>String(item.id)===card.dataset.cartId);if(index===-1)return;
+  if(boton.dataset.action==='remove')carrito.splice(index,1);
+  else if(carrito[index].cartMode!=="fixed-price"){
+    if(boton.dataset.action==='plus')carrito[index].qty=Math.min(99,(Number(carrito[index].qty)||1)+1);
+    if(boton.dataset.action==='minus'){carrito[index].qty=(Number(carrito[index].qty)||1)-1;if(carrito[index].qty<=0)carrito.splice(index,1);}
+  }
+  guardarCarrito(carrito);
+};
+
+$('cartCheckout').onclick=()=>{
+  const carrito=obtenerCarrito();if(!carrito.length)return;
+  let subtotal=0,cotizar=false;
+  const productos=carrito.map((item,index)=>{
+    const qty=Number(item.qty)||1,precio=Number(item.price)||0,total=item.cartMode==="fixed-price"?precio:precio*qty;
+    if(precio)subtotal+=total;else cotizar=true;
+    const cantidad=item.cartMode==="fixed-price"?(item.fixedUnits+' unidades'):qty;
+    const fecha=item.date?`\nFecha: ${fechaBonita(item.date)}`:'';
+    return `${index+1}. ${item.product}\n${textoDetallesItem(item)}\nCantidad: ${cantidad} · ${precio?monedaCorta(total):'Por cotizar'}${fecha}`;
+  }).join('\n\n');
+  const mensaje=`Hola Cortar y Pegar! Quiero hacer este pedido:\n\n${productos}\n\nSubtotal: ${moneda(subtotal)}${cotizar?'\nHay productos por cotizar.':''}`;
+  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(mensaje)}`,'_blank');
+};
+
+
+/* =========================
+   COMPRA DIRECTA COMPACTA
+========================= */
+
+$('f').onsubmit = e => {
+
+e.preventDefault();
+
+const item =
+productoFormulario();
+
+if(!item){
+return;
+}
+
+
+const total =
+
+item.price
+?
+moneda(
+item.price *
+item.qty
+)
+:
+'Por cotizar';
+
+
+const mensaje =
+
+`Hola Cortar y Pegar! Quiero hacer un pedido:
+
+• Producto: ${item.product}
+• Diseño: ${item.design}
+• Texto: ${item.text || '-'}
+• Cantidad: ${item.qty}
+• Fecha: ${fechaBonita(item.date)}
+• Total: ${total}`;
+
+
+window.open(
+
+`https://wa.me/${WA}?text=${encodeURIComponent(mensaje)}`,
+
+'_blank'
+
+);
+
+};
+
+
+/* =========================
+   PRODUCTO DESDE CATÁLOGO
+========================= */
+
+const parametros =
+new URLSearchParams(
+window.location.search
+);
+
+const productoURL =
+parametros.get('producto');
+
+
+if(productoURL){
+
+const existe =
+
+[
+...$('prod').options
+]
+
+.some(option =>
+
+option.value ===
+productoURL
+
+);
+
+
+if(existe){
+
+$('prod').value =
+productoURL;
+
+setTimeout(
+() => {
+
+$('pedido')
+.scrollIntoView({
+behavior:'smooth'
+});
+
+},
+200
+);
+
+}
+
+}
+
+
+/* ESC */
+
+document.addEventListener(
+'keydown',
+e => {
+
+if(
+e.key !==
+'Escape'
+){
+return;
+}
+
+cerrarMenu();
+
+cerrarBusqueda();
+
+cerrarCarrito();
+
+cerrarCotizacion();
+
+}
+);
+
+
+actualizarDestacadosDesdeCatalogo();
+actualizarFavoritosVisuales();
+
+renderCarrito();
+
+
+</script>
+
+</body>
+
+</html>

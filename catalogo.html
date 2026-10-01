@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Cortar & Pegar | Catálogo</title>
+<meta name="description" content="Explora el catálogo de Cortar & Pegar: agendas, cuadernos, regalos, sets, productos sensoriales, impresiones 3D y packaging para negocios.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#E0338A">
+<link rel="icon" type="image/png" href="imagenes/logo.png">
+<link rel="apple-touch-icon" href="imagenes/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cortar & Pegar | Catálogo">
+<meta property="og:description" content="Explora el catálogo de Cortar & Pegar: agendas, cuadernos, regalos, sets, productos sensoriales, impresiones 3D y packaging para negocios.">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<style>
+
+:root{
+  --bg:#FDE9F1;
+  --card:#FFF5F9;
+  --rosa:#F5A0C3;
+  --rosa-medio:#F48FB8;
+  --magenta:#E0338A;
+  --borde:#F6C3D8;
+  --celeste:#74C6F0;
+  --texto:#25193A;
+  --texto2:#8C7A97;
+  --sombra:0 7px 20px rgba(224,51,138,.12);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Ubuntu',sans-serif;
+  background:var(--bg);
+  color:var(--texto);
+  padding:clamp(8px,3vw,32px);
+}
+
+body.lock{
+  overflow:hidden;
+}
+
+button{
+  font:inherit;
+  border:0;
+  background:none;
+  color:inherit;
+  cursor:pointer;
+}
+
+a{
+  color:inherit;
+}
+
+.app{
+  max-width:1100px;
+  min-height:90vh;
+  margin:auto;
+
+  padding:clamp(14px,3vw,34px);
+
+  background:
+  linear-gradient(
+    #FFF8FB,
+    var(--card)
+  );
+
+  border:2px solid #fff;
+  border-radius:34px;
+
+  box-shadow:
+  0 0 0 6px rgba(249,184,208,.25),
+  var(--sombra);
+}
+
+
+/* ==============================
+   HEADER
+============================== */
+
+.top{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:12px;
+}
+
+.volver{
+  justify-self:start;
+
+  display:flex;
+  align-items:center;
+  gap:7px;
+
+  padding:9px 14px;
+
+  border-radius:99px;
+
+  background:#fff;
+  border:1.5px solid var(--borde);
+
+  color:var(--magenta);
+
+  text-decoration:none;
+
+  font-weight:600;
+}
+
+.logo{
+  width:clamp(170px,30vw,310px);
+
+  min-height:70px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.logo img{
+  display:block;
+
+  width:100%;
+  max-height:105px;
+
+  object-fit:contain;
+}
+
+.logo-fallback{
+  display:none;
+
+  color:var(--magenta);
+
+  font-size:30px;
+  font-weight:700;
+}
+
+.top-actions{
+  justify-self:end;
+
+  display:flex;
+  gap:9px;
+}
+
+.ic{
+  width:42px;
+  height:42px;
+
+  position:relative;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:50%;
+
+  background:#fff;
+  border:1px solid var(--borde);
+
+  color:var(--magenta);
+
+  text-decoration:none;
+
+  box-shadow:
+  0 3px 8px
+  rgba(249,184,208,.25);
+
+  transition:.2s;
+}
+
+.ic:hover{
+  transform:translateY(-2px);
+  background:#FFF0F6;
+}
+
+.ic svg{
+  width:22px;
+  height:22px;
+
+  fill:none;
+  stroke:currentColor;
+
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.badge{
+  position:absolute;
+
+  top:-6px;
+  right:-6px;
+
+  min-width:19px;
+  height:19px;
+
+  padding:0 4px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:99px;
+
+  background:var(--rosa-medio);
+
+  color:#fff;
+
+  font-size:10px;
+  font-weight:700;
+}
+
+
+/* ==============================
+   CATEGORÍAS
+============================== */
+
+.category-nav{
+  display:flex;
+  gap:10px;
+
+  overflow-x:auto;
+
+  padding:22px 2px 8px;
+
+  scrollbar-width:none;
+}
+
+.category-nav::-webkit-scrollbar{
+  display:none;
+}
+
+.category-nav a{
+  flex:1 0 auto;
+
+  padding:10px 18px;
+
+  border-radius:99px;
+
+  background:#fff;
+  border:1.5px solid var(--borde);
+
+  color:var(--magenta);
+
+  text-decoration:none;
+  text-align:center;
+
+  font-weight:500;
+
+  transition:.2s;
+}
+
+.category-nav a:hover{
+  background:#FFF0F6;
+  transform:translateY(-2px);
+}
+
+.category-nav a.on{
+  background:var(--rosa);
+  color:#fff;
+
+  border-color:var(--rosa);
+}
+
+
+/* ==============================
+   CABECERA
+============================== */
+
+.category-head{
+  padding:
+  clamp(38px,6vw,65px)
+  10px
+  32px;
+
+  text-align:center;
+}
+
+.category-icon{
+  display:block;
+
+  margin-bottom:7px;
+
+  font-size:
+  clamp(43px,7vw,67px);
+}
+
+.category-head h1{
+  color:var(--magenta);
+
+  font-size:
+  clamp(32px,6vw,56px);
+
+  line-height:1.05;
+}
+
+.category-head p{
+  max-width:650px;
+
+  margin:13px auto 0;
+
+  color:var(--texto2);
+
+  font-size:
+  clamp(14px,2.5vw,18px);
+
+  line-height:1.5;
+}
+
+
+/* ==============================
+   CONTADOR
+============================== */
+
+.catalog-bar{
+  margin-bottom:18px;
+}
+
+.product-count{
+  color:var(--texto2);
+
+  font-size:14px;
+}
+
+.product-count strong{
+  color:var(--magenta);
+}
+
+
+/* ==============================
+   PRODUCTOS
+============================== */
+
+.products-grid{
+  display:grid;
+
+  grid-template-columns:
+  repeat(3,1fr);
+
+  gap:
+  clamp(14px,2vw,24px);
+}
+
+.product-card{
+  min-width:0;
+
+  display:flex;
+  flex-direction:column;
+
+  overflow:hidden;
+
+  border-radius:24px;
+
+  background:#fff;
+
+  border:1px solid var(--borde);
+
+  box-shadow:
+  0 7px 18px
+  rgba(224,51,138,.09);
+
+  cursor:pointer;
+
+  transition:.22s;
+}
+
+.product-card:hover{
+  transform:translateY(-5px);
+
+  box-shadow:
+  0 13px 27px
+  rgba(224,51,138,.14);
+}
+
+.product-image{
+  aspect-ratio:1.05/1;
+
+  position:relative;
+
+  display:grid;
+  place-items:center;
+
+  overflow:hidden;
+
+  background:
+
+  repeating-linear-gradient(
+    0deg,
+    rgba(116,198,240,.16)
+    0 18px,
+    transparent
+    18px 36px
+  ),
+
+  repeating-linear-gradient(
+    90deg,
+    rgba(245,160,195,.18)
+    0 18px,
+    transparent
+    18px 36px
+  ),
+
+  #FFF7FA;
+}
+
+.product-image::after{
+  content:"";
+
+  position:absolute;
+
+  width:62%;
+  height:62%;
+
+  border-radius:50%;
+
+  background:
+  rgba(255,255,255,.65);
+}
+
+.product-emoji{
+  position:relative;
+  z-index:1;
+
+  font-size:
+  clamp(55px,8vw,82px);
+}
+
+
+.product-placeholder{
+  position:relative;
+  z-index:1;
+  font-size:clamp(55px,8vw,82px);
+}
+
+/* FAVORITO */
+
+
+.product-photo{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  z-index:2;
+  transition:transform .25s ease;
+}
+
+.product-card:hover .product-photo{
+  transform:scale(1.035);
+}
+
+.product-fav{
+  position:absolute;
+
+  top:12px;
+  right:12px;
+
+  z-index:10;
+
+  width:42px;
+  height:42px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:50%;
+
+  background:#fff;
+
+  color:var(--rosa-medio);
+
+  font-size:22px;
+
+  box-shadow:
+  0 4px 10px
+  rgba(0,0,0,.08);
+
+  transition:.18s;
+}
+
+.product-fav:hover{
+  transform:scale(1.08);
+}
+
+.product-fav.on{
+  color:var(--magenta);
+
+  background:#FFF0F6;
+}
+
+
+/* INFO */
+
+.product-info{
+  flex:1;
+
+  display:flex;
+  flex-direction:column;
+
+  padding:17px;
+}
+
+.product-category{
+  margin-bottom:7px;
+
+  color:var(--rosa-medio);
+
+  font-size:11px;
+  font-weight:700;
+
+  text-transform:uppercase;
+
+  letter-spacing:.7px;
+}
+
+.product-name{
+  font-size:
+  clamp(16px,2.2vw,20px);
+
+  line-height:1.3;
+}
+
+.product-description{
+  margin-top:8px;
+
+  color:var(--texto2);
+
+  font-size:13px;
+  line-height:1.45;
+}
+
+.product-price{
+  margin:14px 0 16px;
+
+  color:var(--magenta);
+
+  font-size:20px;
+  font-weight:700;
+}
+
+.view-product{
+  width:100%;
+
+  margin-top:auto;
+
+  padding:11px 14px;
+
+  border-radius:99px;
+
+  background:var(--rosa);
+
+  color:#fff;
+
+  font-weight:600;
+
+  transition:.2s;
+}
+
+.view-product:hover{
+  background:var(--rosa-medio);
+}
+
+
+/* ==============================
+   BUSCADOR
+============================== */
+
+.overlay{
+  position:fixed;
+
+  inset:0;
+
+  z-index:10000;
+
+  background:
+  rgba(37,25,58,.43);
+
+  backdrop-filter:blur(3px);
+
+  opacity:0;
+  visibility:hidden;
+
+  transition:.25s;
+}
+
+.overlay.on{
+  opacity:1;
+  visibility:visible;
+}
+
+.search-panel{
+  width:min(calc(100% - 30px),650px);
+
+  max-height:85vh;
+
+  margin:30px auto;
+
+  padding:20px;
+
+  overflow:auto;
+
+  border-radius:26px;
+
+  background:#FFF8FB;
+}
+
+.search-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  gap:15px;
+
+  margin-bottom:15px;
+}
+
+.search-head h2{
+  color:var(--magenta);
+}
+
+.close{
+  width:40px;
+  height:40px;
+
+  border-radius:50%;
+
+  background:#fff;
+  border:1px solid var(--borde);
+
+  color:var(--magenta);
+
+  font-size:23px;
+}
+
+.search-input{
+  width:100%;
+
+  padding:14px;
+
+  margin-bottom:15px;
+
+  border:1.5px solid var(--borde);
+  border-radius:15px;
+
+  outline:none;
+
+  font:inherit;
+}
+
+.search-input:focus{
+  border-color:var(--magenta);
+}
+
+.search-result{
+  width:100%;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  gap:15px;
+
+  padding:14px;
+
+  margin-bottom:7px;
+
+  border-radius:14px;
+
+  background:#fff;
+
+  text-align:left;
+}
+
+.search-result:hover{
+  background:#FFF0F6;
+}
+
+.search-result-name{
+  display:block;
+
+  font-weight:600;
+}
+
+.search-result-category{
+  display:block;
+
+  margin-top:3px;
+
+  color:var(--texto2);
+
+  font-size:12px;
+}
+
+.search-result-price{
+  color:var(--magenta);
+
+  font-size:13px;
+  font-weight:700;
+
+  flex-shrink:0;
+}
+
+.search-empty{
+  padding:35px 15px;
+
+  text-align:center;
+
+  color:var(--texto2);
+}
+
+
+/* ==============================
+   CARRITO
+============================== */
+
+.cart-drawer{
+  position:fixed;
+
+  top:0;
+  right:0;
+  bottom:0;
+
+  z-index:11001;
+
+  width:min(92vw,440px);
+
+  display:flex;
+  flex-direction:column;
+
+  background:#FFF8FB;
+
+  transform:translateX(105%);
+
+  transition:.3s;
+
+  box-shadow:
+  -15px 0 40px
+  rgba(37,25,58,.18);
+}
+
+.cart-drawer.on{
+  transform:translateX(0);
+}
+
+.cart-overlay{
+  z-index:11000;
+}
+
+.cart-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:20px;
+
+  border-bottom:1px solid var(--borde);
+}
+
+.cart-head h2{
+  color:var(--magenta);
+}
+
+.cart-items{
+  flex:1;
+
+  overflow-y:auto;
+
+  padding:14px;
+}
+
+.cart-empty{
+  padding:55px 20px;
+
+  text-align:center;
+
+  color:var(--texto2);
+}
+
+.cart-empty span{
+  display:block;
+
+  margin-bottom:10px;
+
+  font-size:50px;
+}
+
+.cart-item{
+  padding:14px;
+
+  margin-bottom:10px;
+
+  background:#fff;
+
+  border:1px solid var(--borde);
+  border-radius:18px;
+}
+
+.cart-item-top{
+  display:flex;
+  justify-content:space-between;
+
+  gap:10px;
+}
+
+.cart-item-name{
+  font-weight:700;
+}
+
+.cart-remove{
+  color:var(--magenta);
+
+  font-size:20px;
+}
+
+.cart-details{
+  margin-top:8px;
+
+  color:var(--texto2);
+
+  font-size:12px;
+  line-height:1.6;
+}
+
+.cart-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  margin-top:12px;
+}
+
+.cart-qty{
+  display:flex;
+
+  overflow:hidden;
+
+  border:1px solid var(--borde);
+  border-radius:99px;
+}
+
+.cart-qty button{
+  width:34px;
+  height:32px;
+
+  color:var(--magenta);
+}
+
+.cart-qty span{
+  min-width:32px;
+
+  display:grid;
+  place-items:center;
+}
+
+.cart-price{
+  color:var(--magenta);
+
+  font-weight:700;
+}
+
+.cart-footer{
+  padding:18px;
+
+  background:#fff;
+
+  border-top:1px solid var(--borde);
+}
+
+.cart-total-line{
+  display:flex;
+  justify-content:space-between;
+
+  font-size:18px;
+}
+
+.cart-total{
+  color:var(--magenta);
+
+  font-weight:700;
+}
+
+.cart-note{
+  min-height:15px;
+
+  margin:6px 0 13px;
+
+  color:var(--texto2);
+
+  font-size:11px;
+}
+
+.cart-checkout{
+  width:100%;
+
+  padding:14px;
+
+  border-radius:99px;
+
+  background:var(--celeste);
+
+  color:#fff;
+
+  font-weight:600;
+}
+
+.cart-continue{
+  width:100%;
+
+  padding:10px;
+
+  margin-top:7px;
+
+  color:var(--magenta);
+}
+
+
+/* ==============================
+   FOOTER
+============================== */
+
+.footer-benefits{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+
+  gap:15px 35px;
+
+  padding:38px 0 12px;
+
+  color:var(--texto2);
+
+  font-size:13px;
+}
+
+footer{
+  padding:15px;
+
+  text-align:center;
+
+  color:var(--texto2);
+
+  font-size:12px;
+}
+
+footer a{
+  color:var(--magenta);
+  text-decoration:none;
+  font-weight:600;
+}
+
+footer a:hover{
+  text-decoration:underline;
+}
+
+
+/* ==============================
+   RESPONSIVE
+============================== */
+
+@media(max-width:850px){
+
+  .products-grid{
+    grid-template-columns:
+    repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:600px){
+
+  body{
+    padding:8px;
+  }
+
+  .app{
+    padding:14px;
+
+    border-radius:25px;
+  }
+
+  .top{
+    grid-template-columns:
+    auto 1fr auto;
+  }
+
+  .volver{
+    width:42px;
+    height:42px;
+
+    padding:0;
+
+    justify-content:center;
+  }
+
+  .volver span{
+    display:none;
+  }
+
+  .logo{
+    width:clamp(120px,36vw,185px);
+  }
+
+  .top-actions{
+    gap:5px;
+  }
+
+  .ic{
+    width:38px;
+    height:38px;
+  }
+
+  .products-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+
+.cart-fixed{padding:7px 11px;border:1px solid var(--borde);border-radius:99px;color:var(--texto2);font-size:12px;background:#FFF8FB;}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==============================
+     BUSCADOR
+============================== -->
+
+<div
+class="overlay"
+id="searchOverlay">
+
+<div class="search-panel">
+
+<div class="search-head">
+
+<h2>
+¿Qué buscas? ♡
+</h2>
+
+<button
+class="close"
+id="searchClose"
+type="button">
+
+×
+
+</button>
+
+</div>
+
+<input
+class="search-input"
+id="searchInput"
+type="search"
+placeholder="Busca agendas, cuadernos, stickers..."
+autocomplete="off">
+
+<div id="searchResults">
+
+<div class="search-empty">
+Escribe para buscar un producto.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ==============================
+     CARRITO OVERLAY
+============================== -->
+
+<div
+class="overlay cart-overlay"
+id="cartOverlay">
+</div>
+
+
+<!-- ==============================
+     CARRITO
+============================== -->
+
+<aside
+class="cart-drawer"
+id="cartDrawer">
+
+<div class="cart-head">
+
+<h2>
+Tu carrito
+</h2>
+
+<button
+class="close"
+id="cartClose"
+type="button">
+
+×
+
+</button>
+
+</div>
+
+
+<div
+class="cart-items"
+id="cartItems">
+</div>
+
+
+<div class="cart-footer">
+
+<div class="cart-total-line">
+
+<span>
+Subtotal
+</span>
+
+<span
+class="cart-total"
+id="cartSubtotal">
+
+$0
+
+</span>
+
+</div>
+
+<div
+class="cart-note"
+id="cartNote">
+</div>
+
+<button
+class="cart-checkout"
+id="cartCheckout"
+type="button">
+
+Finalizar carrito por WhatsApp
+
+</button>
+
+<button
+class="cart-continue"
+id="cartContinue"
+type="button">
+
+← Seguir comprando
+
+</button>
+
+</div>
+
+</aside>
+
+
+<!-- ==============================
+     PÁGINA
+============================== -->
+
+<div class="app">
+
+
+<header class="top">
+
+
+<a
+class="volver"
+href="index.html">
+
+←
+
+<span>
+Volver
+</span>
+
+</a>
+
+
+<div class="logo">
+
+<img
+id="logoImage"
+src="imagenes/logo.png"
+alt="Cortar & Pegar">
+
+<span
+class="logo-fallback"
+id="logoFallback">
+
+Cortar & Pegar
+
+</span>
+
+</div>
+
+
+<div class="top-actions">
+
+
+<!-- BUSCAR -->
+
+<button
+class="ic"
+id="searchOpen"
+type="button"
+aria-label="Buscar">
+
+<svg viewBox="0 0 24 24">
+
+<circle
+cx="11"
+cy="11"
+r="7"/>
+
+<path
+d="m20 20-4-4"/>
+
+</svg>
+
+</button>
+
+
+<!-- FAVORITOS -->
+
+<a
+class="ic"
+href="favoritos.html"
+aria-label="Favoritos">
+
+<svg viewBox="0 0 24 24">
+
+<path
+d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/>
+
+</svg>
+
+<span
+class="badge"
+id="favoriteBadge">
+
+0
+
+</span>
+
+</a>
+
+
+<!-- CARRITO -->
+
+<button
+class="ic"
+id="cartOpen"
+type="button"
+aria-label="Carrito">
+
+<svg viewBox="0 0 24 24">
+
+<path
+d="M5 8h14l-1 12H6zM9 8V6a3 3 0 0 1 6 0v2"/>
+
+</svg>
+
+<span
+class="badge"
+id="cartBadge">
+
+0
+
+</span>
+
+</button>
+
+
+</div>
+
+</header>
+
+
+<!-- ==============================
+     CATEGORÍAS
+============================== -->
+
+<nav class="category-nav">
+
+<a
+href="catalogo.html?categoria=todos"
+data-category-link="todos">
+
+🛍️ Todos
+
+</a>
+
+<a
+href="catalogo.html?categoria=agendas"
+data-category-link="agendas">
+
+🌸 Agendas
+
+</a>
+
+<a
+href="catalogo.html?categoria=cuadernos"
+data-category-link="cuadernos">
+
+📓 Cuadernos
+
+</a>
+
+<a
+href="catalogo.html?categoria=stickers"
+data-category-link="stickers">
+
+⭐ Stickers
+
+</a>
+
+<a
+href="catalogo.html?categoria=regalos"
+data-category-link="regalos">
+
+🎁 Regalos
+
+</a>
+
+<a
+href="catalogo.html?categoria=sets"
+data-category-link="sets">
+
+🎀 Sets
+
+</a>
+
+
+<a
+href="catalogo.html?categoria=negocios"
+data-category-link="negocios">
+
+💼 Negocios
+
+</a>
+
+<a
+href="catalogo.html?categoria=mas"
+data-category-link="mas">
+
+⋯ Más
+
+</a>
+
+</nav>
+
+
+<!-- ==============================
+     CABECERA
+============================== -->
+
+<section class="category-head">
+
+<span
+class="category-icon"
+id="categoryIcon">
+
+🛍️
+
+</span>
+
+<h1 id="categoryTitle">
+Todos los productos
+</h1>
+
+<p id="categoryDescription">
+Explora todo lo que hacemos en Cortar & Pegar.
+</p>
+
+</section>
+
+
+<div class="catalog-bar">
+
+<div
+class="product-count"
+id="productCount">
+</div>
+
+</div>
+
+
+<main
+class="products-grid"
+id="productsGrid">
+</main>
+
+
+<div class="footer-benefits">
+
+<span>
+🚚 Envíos a todo Chile
+</span>
+
+<span>
+🎁 Packaging especial
+</span>
+
+<span>
+🛡️ Compra segura
+</span>
+
+</div>
+
+
+<footer>
+Cortar & Pegar · <a href="https://www.instagram.com/cortar_y.pegar/" target="_blank" rel="noopener noreferrer">Instagram</a> · <a href="https://wa.me/56950375836" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+</footer>
+
+
+</div>
+
+
+<script src="js/productos.js"></script>
+
+<script>
+/* ==============================
+   CONFIGURACIÓN
+============================== */
+const WA = "56950375836";
+const CART_KEY = "cortarPegarCartV1";
+const FAVORITES_KEY = "cortarPegarFavoritesV1";
+const CATEGORIAS = window.CP_CATEGORIAS || {};
+const PRODUCTOS = window.CP_PRODUCTOS_LISTA || [];
+
+/* ==============================
+   UTILIDADES
+============================== */
+function moneda(valor){ return "$" + Number(valor).toLocaleString("es-CL") + " CLP"; }
+function monedaCorta(valor){ return "$" + Number(valor).toLocaleString("es-CL"); }
+function fechaBonita(fecha){ return fecha ? fecha.split("-").reverse().join("/") : "-"; }
+function escapar(texto){
+  return String(texto ?? "").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
+}
+function normalizar(texto){ return String(texto ?? "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,""); }
+function precioTexto(producto){
+  if(producto.tipo === "negocio" && producto.precioDesde) return "Desde " + moneda(producto.precioDesde);
+  return producto.precio ? moneda(producto.precio) : "Consultar precio";
+}
+function etiquetaCategoria(producto){
+  if(categoriaActual !== "todos" && CATEGORIAS[categoriaActual]) return CATEGORIAS[categoriaActual].titulo;
+  return producto.categoriaNombre || CATEGORIAS[producto.categoria]?.titulo || "Producto";
+}
+
+/* ==============================
+   CATEGORÍA ACTUAL
+============================== */
+const params = new URLSearchParams(window.location.search);
+let categoriaActual = params.get("categoria") || "todos";
+
+const CATEGORIAS_PERMITIDAS = [
+  "todos",
+  "agendas",
+  "cuadernos",
+  "stickers",
+  "regalos",
+  "sets",
+  "negocios",
+  "mas"
+];
+
+if(!CATEGORIAS_PERMITIDAS.includes(categoriaActual)){
+  categoriaActual = "todos";
+}
+
+const META_NEGOCIOS = {
+  titulo: "Negocios & Packaging",
+  icono: "💼",
+  descripcion: "Stickers, tarjetas, packaging y materiales personalizados para emprendimientos, empresas y marcas."
+};
+
+let categoriaMeta;
+
+if(categoriaActual === "todos"){
+  categoriaMeta = {
+    titulo: "Todos los productos",
+    icono: "🛍️",
+    descripcion: "Explora todos los productos, sets y opciones de Cortar & Pegar."
+  };
+}
+else if(categoriaActual === "negocios"){
+  categoriaMeta = META_NEGOCIOS;
+}
+else{
+  categoriaMeta = CATEGORIAS[categoriaActual] || {
+    titulo: "Productos",
+    icono: "✨",
+    descripcion: "Explora nuestros productos personalizados."
+  };
+}
+
+let productosCategoria;
+
+if(categoriaActual === "todos"){
+  productosCategoria = PRODUCTOS.slice();
+}
+else if(categoriaActual === "negocios"){
+  productosCategoria = PRODUCTOS.filter(producto => {
+    const cats = producto.categorias || [producto.categoria];
+    return producto.tipo === "negocio" || cats.includes("negocios");
+  });
+}
+else{
+  productosCategoria = PRODUCTOS.filter(producto => {
+    const cats = producto.categorias || [producto.categoria];
+    return cats.includes(categoriaActual);
+  });
+}
+
+document.getElementById("categoryIcon").textContent = categoriaMeta.icono;
+document.getElementById("categoryTitle").textContent = categoriaMeta.titulo;
+document.getElementById("categoryDescription").textContent = categoriaMeta.descripcion;
+document.title = `Cortar & Pegar | ${categoriaMeta.titulo}`;
+document.querySelectorAll("[data-category-link]").forEach(link => {
+  link.classList.toggle("on", link.dataset.categoryLink === categoriaActual);
+});
+
+/* ==============================
+   FAVORITOS
+============================== */
+function obtenerFavoritos(){
+  try{ const d=JSON.parse(localStorage.getItem(FAVORITES_KEY)); return Array.isArray(d)?d:[]; }catch{return [];}
+}
+function guardarFavoritos(favoritos){
+  localStorage.setItem(FAVORITES_KEY,JSON.stringify([...new Set(favoritos)]));
+  actualizarFavoritosVisuales();
+}
+function alternarFavorito(id){
+  let f=obtenerFavoritos();
+  f=f.includes(id)?f.filter(x=>x!==id):[...f,id];
+  guardarFavoritos(f);
+}
+function actualizarFavoritosVisuales(){
+  const f=obtenerFavoritos();
+  document.getElementById("favoriteBadge").textContent=f.length>99?"99+":f.length;
+  document.querySelectorAll("[data-favorite-id]").forEach(b=>{
+    const on=f.includes(b.dataset.favoriteId);
+    b.classList.toggle("on",on);
+    b.textContent=on?"♥":"♡";
+    b.setAttribute("aria-pressed",on?"true":"false");
+  });
+}
+
+/* ==============================
+   PRODUCTOS
+============================== */
+const productsGrid=document.getElementById("productsGrid");
+function renderProductos(productos){
+  document.getElementById("productCount").innerHTML=`<strong>${productos.length}</strong> ${productos.length===1?"producto":"productos"}`;
+  productsGrid.innerHTML=productos.map(producto=>{
+    const visual=producto.imagen
+      ? `<div class="product-placeholder">${producto.emoji}</div><img class="product-photo" src="${producto.imagen}" alt="${escapar(producto.nombre)}" onerror="this.style.display='none'">`
+      : `<div class="product-placeholder">${producto.emoji}</div>`;
+    return `<article class="product-card" data-page="${producto.pagina}?desde=${categoriaActual}" tabindex="0">
+      <div class="product-image">${visual}<button class="product-fav" type="button" data-favorite-id="${producto.id}" aria-label="Agregar a favoritos">♡</button></div>
+      <div class="product-info">
+        <span class="product-category">${escapar(etiquetaCategoria(producto))}</span>
+        <h2 class="product-name">${escapar(producto.nombre)}</h2>
+        <p class="product-description">${escapar(producto.descripcion)}</p>
+        <div class="product-price">${precioTexto(producto)}</div>
+        <button class="view-product" type="button" data-page="${producto.pagina}?desde=${categoriaActual}">Ver producto →</button>
+      </div>
+    </article>`;
+  }).join("");
+  actualizarFavoritosVisuales();
+}
+renderProductos(productosCategoria);
+
+productsGrid.addEventListener("click",e=>{
+  const fav=e.target.closest("[data-favorite-id]");
+  if(fav){ e.stopPropagation(); alternarFavorito(fav.dataset.favoriteId); return; }
+  const target=e.target.closest("[data-page]");
+  if(target?.dataset.page) window.location.href=target.dataset.page;
+});
+productsGrid.addEventListener("keydown",e=>{
+  if(e.target.closest("[data-favorite-id]")) return;
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  const card=e.target.closest(".product-card[data-page]");
+  if(!card) return;
+  e.preventDefault();
+  window.location.href=card.dataset.page;
+});
+
+/* ==============================
+   BÚSQUEDA
+============================== */
+const searchOverlay=document.getElementById("searchOverlay");
+const searchInput=document.getElementById("searchInput");
+const searchResults=document.getElementById("searchResults");
+function abrirBusqueda(){
+  searchOverlay.classList.add("on"); document.body.classList.add("lock"); searchInput.value="";
+  searchResults.innerHTML='<div class="search-empty">Escribe para buscar un producto.</div>';
+  setTimeout(()=>searchInput.focus(),100);
+}
+function cerrarBusqueda(){ searchOverlay.classList.remove("on"); document.body.classList.remove("lock"); }
+document.getElementById("searchOpen").onclick=abrirBusqueda;
+document.getElementById("searchClose").onclick=cerrarBusqueda;
+searchOverlay.onclick=e=>{ if(e.target===searchOverlay) cerrarBusqueda(); };
+searchInput.addEventListener("input",function(){
+  const q=normalizar(this.value.trim());
+  if(!q){ searchResults.innerHTML='<div class="search-empty">Escribe para buscar un producto.</div>'; return; }
+  const resultados=PRODUCTOS.filter(p=>normalizar(`${p.nombre} ${(p.categorias||[]).join(" ")} ${p.categoriaNombre||""} ${p.descripcion||""}`).includes(q));
+  if(!resultados.length){ searchResults.innerHTML='<div class="search-empty">No encontramos productos.</div>'; return; }
+  searchResults.innerHTML=resultados.map(p=>`<button class="search-result" type="button" data-search-page="${p.pagina}?desde=${categoriaActual}"><span><span class="search-result-name">${escapar(p.nombre)}</span><span class="search-result-category">${escapar(p.tipo==="negocio"?"Negocios & Packaging":(p.categoriaNombre||"Producto"))}</span></span><span class="search-result-price">${precioTexto(p)}</span></button>`).join("");
+});
+searchResults.onclick=e=>{ const r=e.target.closest("[data-search-page]"); if(r) window.location.href=r.dataset.searchPage; };
+
+/* ==============================
+   CARRITO
+============================== */
+function obtenerCarrito(){
+  try{ const d=JSON.parse(localStorage.getItem(CART_KEY)); return Array.isArray(d)?d:[]; }catch{return [];}
+}
+function guardarCarrito(c){ localStorage.setItem(CART_KEY,JSON.stringify(c)); renderCarrito(); }
+function etiquetaDetalle(k){
+  const m={"diseño":"Diseño","texto":"Texto","tematica":"Temática","preferencia":"Preferencia","figura":"Figura","tamano":"Tamaño","acabado":"Acabado","medida":"Medida","caras":"Caras","material":"Material","marca":"Marca","detalles":"Detalles","unidades":"Cantidad"};
+  return m[k]||k.charAt(0).toUpperCase()+k.slice(1);
+}
+function textoDetallesItem(item){
+  const d=item.details||{};
+  const partes=Object.entries(d).filter(([,v])=>v!==""&&v!=="-"&&v!=null).map(([k,v])=>`${etiquetaDetalle(k)}: ${v}`);
+  if(!partes.length&&item.design) partes.push(`Diseño: ${item.design}`);
+  if(item.text&&item.text!=="-"&&!partes.some(x=>x.startsWith("Texto:"))) partes.push(`Texto: ${item.text}`);
+  return partes.length?partes.join(" · "):"Sin detalles adicionales";
+}
+function cartCount(c){ return c.reduce((t,item)=>t+(item.cartMode==="fixed-price"?1:(Number(item.qty)||1)),0); }
+const cartOverlay=document.getElementById("cartOverlay");
+const cartDrawer=document.getElementById("cartDrawer");
+function abrirCarrito(){ cartOverlay.classList.add("on"); cartDrawer.classList.add("on"); document.body.classList.add("lock"); renderCarrito(); }
+function cerrarCarrito(){ cartOverlay.classList.remove("on"); cartDrawer.classList.remove("on"); document.body.classList.remove("lock"); }
+document.getElementById("cartOpen").onclick=abrirCarrito;
+document.getElementById("cartClose").onclick=cerrarCarrito;
+document.getElementById("cartContinue").onclick=cerrarCarrito;
+cartOverlay.onclick=cerrarCarrito;
+
+function renderCarrito(){
+  const carrito=obtenerCarrito();
+  const totalCount=cartCount(carrito);
+  document.getElementById("cartBadge").textContent=totalCount>99?"99+":totalCount;
+  const box=document.getElementById("cartItems");
+  if(!carrito.length){
+    box.innerHTML='<div class="cart-empty">Tu carrito está vacío.</div>';
+    document.getElementById("cartSubtotal").textContent="$0";
+    document.getElementById("cartNote").textContent="";
+    document.getElementById("cartCheckout").disabled=true;
+    return;
+  }
+  document.getElementById("cartCheckout").disabled=false;
+  let subtotal=0, cotizacion=false;
+  box.innerHTML=carrito.map(item=>{
+    const qty=Number(item.qty)||1, precio=Number(item.price)||0;
+    const total=item.cartMode==="fixed-price"?precio:precio*qty;
+    if(precio) subtotal+=total; else cotizacion=true;
+    const controles=item.cartMode==="fixed-price"
+      ? `<div class="cart-fixed">${escapar(item.fixedUnits?item.fixedUnits+" unidades":"Precio cerrado")}</div>`
+      : `<div class="cart-qty"><button type="button" data-action="minus">−</button><span>${qty}</span><button type="button" data-action="plus">+</button></div>`;
+    const fecha=item.date?`<br>Fecha: ${escapar(fechaBonita(item.date))}`:"";
+    return `<article class="cart-item" data-cart-id="${escapar(item.id)}"><div class="cart-item-top"><div class="cart-item-name">${escapar(item.product||"Producto")}</div><button class="cart-remove" data-action="remove" type="button">×</button></div><div class="cart-details">${escapar(textoDetallesItem(item))}${fecha}</div><div class="cart-bottom">${controles}<div class="cart-price">${precio?moneda(total):"Por cotizar"}</div></div></article>`;
+  }).join("");
+  document.getElementById("cartSubtotal").textContent=moneda(subtotal);
+  document.getElementById("cartNote").textContent=cotizacion?"El subtotal no incluye productos por cotizar.":"";
+}
+
+document.getElementById("cartItems").onclick=e=>{
+  const b=e.target.closest("[data-action]"); if(!b) return;
+  const card=b.closest("[data-cart-id]"); if(!card) return;
+  const c=obtenerCarrito(); const i=c.findIndex(x=>String(x.id)===card.dataset.cartId); if(i===-1) return;
+  if(b.dataset.action==="remove") c.splice(i,1);
+  else if(c[i].cartMode!=="fixed-price"){
+    if(b.dataset.action==="plus") c[i].qty=Math.min(99,(Number(c[i].qty)||1)+1);
+    if(b.dataset.action==="minus"){ c[i].qty=(Number(c[i].qty)||1)-1; if(c[i].qty<=0)c.splice(i,1); }
+  }
+  guardarCarrito(c);
+};
+
+document.getElementById("cartCheckout").onclick=()=>{
+  const c=obtenerCarrito(); if(!c.length) return;
+  let subtotal=0, cot=false;
+  const lineas=c.map((item,index)=>{
+    const qty=Number(item.qty)||1, precio=Number(item.price)||0;
+    const total=item.cartMode==="fixed-price"?precio:precio*qty;
+    if(precio) subtotal+=total; else cot=true;
+    const cantidad=item.cartMode==="fixed-price"?(item.fixedUnits+" unidades"):qty;
+    const fecha=item.date?`\nFecha: ${fechaBonita(item.date)}`:"";
+    return `${index+1}. ${item.product||"Producto"}\n${textoDetallesItem(item)}\nCantidad: ${cantidad} · ${precio?monedaCorta(total):"Por cotizar"}${fecha}`;
+  }).join("\n\n");
+  const msg=`Hola Cortar y Pegar! Quiero hacer este pedido:\n\n${lineas}\n\nSubtotal: ${moneda(subtotal)}${cot?"\nHay productos por cotizar.":""}`;
+  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,"_blank");
+};
+
+/* ==============================
+   LOGO / ESC / INICIO
+============================== */
+const logo=document.getElementById("logoImage"), fallback=document.getElementById("logoFallback");
+logo.addEventListener("error",()=>{ logo.style.display="none"; fallback.style.display="block"; });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ cerrarBusqueda(); cerrarCarrito(); } });
+actualizarFavoritosVisuales();
+renderCarrito();
+
+</script>
+
+</body>
+
+</html>
